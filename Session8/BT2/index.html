@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Session8_Exercise2</title>
+    <style>
+        * {
+            background: linear-gradient(135deg, #3f3b60, #524762);  /* mau mam tom kho lay qua*/
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+          
+            display: flex;/* cook ra giữa hoặc nằm mặc định */
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f8f8f8;
+        }
+
+        .form-container {
+           
+            padding: 30px;
+            border-radius: 10px;
+            color: white;
+        }
+
+        .form-group {
+          margin-bottom: 24px;
+        }
+
+        label {
+          
+            display: block;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 14px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        .form-row {
+            display: flex;
+            gap: 10px;
+        }
+
+        .form-row input {  /* chinh kich thuoc cho input*/
+            margin-left: 0;
+            width: 100%;
+        }
+
+        button {
+            margin-left: 0;
+            width: 40%;
+            padding: 10px;
+            background: white;
+            color: black;
+            font-weight: bold;
+            text-transform: uppercase;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background: #b9beb9;
+        }
+    </style>
+    
+</head>
+<body>
+
+    <div class="form-container">
+        <form>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" placeholder="Your Name">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" placeholder="Your Email">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" rows="5" placeholder="Your Message"></textarea>
+            </div>
+            <button type="submit">Send Message</button>
+        </form>
+    </div>
+
+</body>
+</html>

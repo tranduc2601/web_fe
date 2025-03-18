@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Session11_Exercise1</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #340095;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            background-color: white;
+            width: 100%;
+            max-width: 1024px;
+            padding: 20px;
+        }
+
+        .header, .footer {
+
+            border-radius: 15px;
+            background: #fe0100;
+            text-align: center;
+            padding: 20px;
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+        }
+
+        .content {
+            display: flex;
+            gap: 10px;
+            margin: 10px 0;
+        }
+
+        .sidebar1, .sidebar2 {
+            width: 10%;
+            min-height: 300px;
+            text-align: center;
+            padding: 20px;
+            font-size: 20px;
+            font-weight: bold;
+            color: white;
+            border-radius: 15px;
+        }
+
+        .sidebar1 {
+            background: #008001;
+        }
+
+        .sidebar2 {
+            background: #ff68b3;
+        }
+
+        .main-content {
+            flex: 1;
+            background: #ffff05;
+            padding: 20px;
+            border-radius: 10px;
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        .footer {
+            background: #0000fe;
+        }
+
+        @media (max-width: 1024px) {
+            .content {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .sidebar1, .sidebar2, .main-content {
+                width: 100%;
+                min-height: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="header">Header</div>
+
+        <div class="content">
+            <div class="sidebar1">Sidebar 1</div>
+            <div class="main-content">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita modi repellat laboriosam nam id voluptatem ab quae, 
+                quaerat accusamus voluptatem, cumque hic, repudiandae laudantium amet exercitationem numquam. Quaerat obcaecati 
+                deleniti quae et repellendus praesentium modi illum corporis incidunt, nobis molestias inventore fugit voluptatem 
+                tempore nam necessitatibus ipsum. 
+            </div>
+            <div class="sidebar2">Sidebar 2</div>
+        </div>
+
+        <div class="footer">Footer</div>
+    </div>
+
+</body>
+</html>

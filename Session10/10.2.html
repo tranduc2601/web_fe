@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Session10_Exercise2</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f8f8f8;
+            text-align: center;
+        }
+        h2 {
+            font-size: 24px;
+            text-align: left;
+        }
+        .category-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: left;
+            background-color: white;
+            border-radius: 10px;
+            max-width: 800px;
+        }
+        .category-item {
+            width: 180px;
+            text-align: center;
+            margin: 10px;
+        }
+        .category-item img {
+            width: 180px;
+            height: 180px;
+            object-fit: cover;/* cho cai anh do bij bien dang */
+            border-radius: 10px;
+            display: block;
+        }
+        .category-label {
+            position: relative;
+            background-color: #EBEEF3;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 24px;
+            font-weight: bold;
+            text-transform: uppercase;
+            text-align: center;
+            color: #333;
+        }
+
+        .category-label::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 50%;
+            background: linear-gradient(to bottom, rgba(235, 238, 243, 0) 0%, rgba(235, 238, 243, 1) 100%);
+            /* chinh cai mau nay la thua */
+        }       
+
+
+    </style>
+</head>
+<body>
+
+    <h2>Category</h2>
+    <div class="category-container">
+        <div class="category-item">
+            <div class="category-label">Football</div>
+            <img src="https://cdn.prod.website-files.com/624377e20c9e225e2e55e2ed/63f7c9ccf28d7d7ba5f1c1ff_football-1396740_1280.jpg" alt="Football">
+        </div>
+        <div class="category-item">
+            <img src="https://image.api.playstation.com/vulcan/ap/rnd/202309/2010/041ef90ae0cb8360d661d315b1d4ad40a4f1f6bf08658bb0.jpg" alt="Basketball">
+            <div class="category-label">Basketball</div>
+        </div>
+        <div class="category-item">
+            <div class="category-label">Car Sport</div>
+            <img src="https://www.usnews.com/object/image/00000191-d821-d8b8-adf7-f97944b10000/chevrolet-corvette-zr1-coupe-001.jpg?update-time=1725907944302&size=responsiveGallery" alt="Car Sport">
+        </div>
+        <div class="category-item">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSX7Ba9drcoJpZlitXFQmy-DLRvXbRsRkXpew&s" alt="Table Tennis">
+            <div class="category-label">Table Tennis</div>
+        </div>
+    </div>
+
+</body>
+</html>

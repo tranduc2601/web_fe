@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Session5_Exercise8</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .container {
+            max-width: 900px;
+        }
+        h2 {
+            border-bottom: 2px dashed #ccc;
+            padding-bottom: 10px;
+        }
+        .posts {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        .column {
+            display: flex;
+            flex-direction: column;
+            gap: 5px; /* Khoảng cách giữa các bài viết */
+        }
+        .column:last-child {
+            border-left: 20px solid rgba(0, 0, 0, 0.1); /* Viền mờ cho cột thứ hai */
+            padding-left: 15px;
+        }
+        .post {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 5px;
+        }
+        .post img {
+            width: 100px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+        .post-content {
+            flex: 1;
+        }
+        .date {
+            color: gray;
+            font-size: 14px;
+        }
+        .title {
+            font-size: 16px;
+            font-weight: bold;
+            color: #2c2c6c;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>BÀI VIẾT CÙNG CHỦ ĐỀ</h2>
+        <div class="posts">
+            <div class="column">
+                <div class="post">
+                    <img src="https://rikkei.edu.vn/wp-content/uploads/2024/01/giao-huu-bong-da-ptit-fulltime-rikkei-academy.jpg" alt="Bài 1">
+                    <div class="post-content">
+                        <div class="date">28/12/2023 • 04 phút đọc</div>
+                        <div class="title">[HCM] Trận Giao Hữu Bóng Đá Giữa PTIT & Lớp Fulltime</div>
+                    </div>
+                </div>
+                <div class="post">
+                    <img src="https://rikkei.edu.vn/wp-content/uploads/2024/01/workshop-Data-Analysis-Rikkei-Academy.jpg" alt="Bài 2">
+                    <div class="post-content">
+                        <div class="date">10/01/2024 • 04 phút đọc</div>
+                        <div class="title">Workshop: Bức Tranh Nhân Sự Ngành Data Analysis 2024</div>
+                    </div>
+                </div>
+                <div class="post">
+                    <img src="https://rikkei.edu.vn/wp-content/uploads/2023/05/khoa-hoc-lap-trinh-rikkei-academy.jpg" alt="Bài 3">
+                    <div class="post-content">
+                        <div class="date">17/05/2023 • 04 phút đọc</div>
+                        <div class="title">Khóa Học Lập Trình Từ Cơ Bản Đến Nâng Cao – Rikkei Academy</div>
+                    </div>
+                </div>
+            </div>
+            <div class="column" >
+                <div class="post">
+                    <img src="https://cdn.brvn.vn/editor/2023/07/U100653_Bai-dang-final-1_1690359340.jpg" alt="Bài 4">
+                    <div class="post-content">
+                        <div class="date">26/07/2023 • 04 phút đọc</div>
+                        <div class="title">Workshop “Giải Pháp Tự động hóa Quản trị Nhân Sự – Kinh nghiệm xây dựng và triển khai...</div>
+                    </div>
+                </div>
+                <div class="post">
+                    <img src="https://rikkei.edu.vn/wp-content/uploads/2023/07/rikkei-academy-da-nang_3.jpg" alt="Bài 5">
+                    <div class="post-content">
+                        <div class="date">09/07/2023 • 04 phút đọc</div>
+                        <div class="title">[04/07/2023] Rikkei Academy Đà Nẵng chào đón những vị khách “đặc biệt”</div>
+                    </div>
+                </div>
+                <div class="post">
+                    <img src="https://rikkei.edu.vn/wp-content/uploads/2022/07/khai-giang-khoa-dao-tao-lap-trinh-thang-6.jpg" alt="Bài 6">
+                    <div class="post-content">
+                        <div class="date">15/07/2022 • 04 phút đọc</div>
+                        <div class="title">RIKKEI ACADEMY KHAI GIẢNG CHƯƠNG TRÌNH ĐÀO TẠO LẬP TRÌNH VIÊN FULL STACK</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

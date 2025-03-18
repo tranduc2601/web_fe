@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Session3_Exercise8</title>
+</head>
+<body>
+    <form>
+        <table>
+            <tr>
+                <td><label for="name">Họ và tên:</label></td>
+                <td><input type="text" id="name"></td>
+            </tr>
+            <tr>
+                <td><label for="dob">Ngày sinh:</label></td>
+                <td><input type="date" id="dob"></td>
+            </tr>
+            <tr>
+                <td><label>Giới tính:</label></td>
+                <td>
+                    <input type="radio" id="male" name="gender" value="Nam">
+                    <label for="male">Nam</label>
+                    <input type="radio" id="female" name="gender" value="Nữ">
+                    <label for="female">Nữ</label>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="id-card">Số căn cước công dân:</label></td>
+                <td><input type="text" id="id-card"></td>
+            </tr>
+            <tr>
+                <td><label for="issue-date">Ngày cấp:</label></td>
+                <td><input type="date" id="issue-date"></td>
+            </tr>
+            <tr>
+                <td><label for="issue-place">Nơi cấp:</label></td>
+                <td><input type="text" id="issue-place"></td>
+            </tr>
+            <tr>
+                <td><label for="phone">Số điện thoại:</label></td>
+                <td><input type="tel" id="phone"></td>
+            </tr>
+            <tr>
+                <td><label for="email">Email:</label></td>
+                <td><input type="email" id="email"></td>
+            </tr>
+            <tr>
+                <td><label for="permanent-address">Địa chỉ thường trú:</label></td>
+                <td><textarea id="permanent-address" rows="3" cols="30"></textarea></td>
+            </tr>
+            <tr>
+                <td><label for="temporary-address">Địa chỉ tạm trú:</label></td>
+                <td><textarea id="temporary-address" rows="3" cols="30"></textarea></td>
+            </tr>
+            <tr>
+                <td><label>Loại căn cước công dân:</label></td>
+                <td>
+                    <input type="radio" id="new-id" name="id-type" value="Mới">
+                    <label for="new-id">Căn cước công dân mới</label>
+                    <input type="radio" id="old-id" name="id-type" value="Cũ">
+                    <label for="old-id">Căn cước công dân cũ</label>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="ethnicity">Dân tộc:</label></td>
+                <td><input type="text" id="ethnicity"></td>
+            </tr>
+            <tr>
+                <td><label for="religion">Tôn giáo:</label></td>
+                <td><input type="text" id="religion"></td>
+            </tr>
+            <tr>
+                <td><label for="nationality">Quốc tịch:</label></td>
+                <td><input type="text" id="nationality" value="Việt Nam"></td>
+            </tr>
+            <tr>
+                <td><label for="parent-name">Họ tên cha/mẹ:</label></td>
+                <td><input type="text" id="parent-name"></td>
+            </tr>
+            <tr>
+                <td><label for="parent-id">Số CMND/CCCD của cha/mẹ:</label></td>
+                <td><input type="text" id="parent-id"></td>
+            </tr>
+            <tr>
+                <td><label for="province">Tỉnh/Thành phố:</label></td>
+                <td>
+                    <select id="province">
+                        <option value="">Chọn Tỉnh/Thành phố</option>
+                        <option value="an-giang">An Giang</option>
+                        <option value="ba-ria-vung-tau">Bà Rịa - Vũng Tàu</option>
+                        <option value="bac-lieu">Bạc Liêu</option>
+                        <option value="bac-kan">Bắc Kạn</option>
+                        <option value="bac-giang">Bắc Giang</option>
+                        <option value="bac-ninh">Bắc Ninh</option>
+                        <option value="ben-tre">Bến Tre</option>
+                        <option value="binh-dinh">Bình Định</option>
+                        <option value="binh-duong">Bình Dương</option>
+                        <option value="binh-phuoc">Bình Phước</option>
+                        <option value="binh-thuan">Bình Thuận</option>
+                        <option value="ca-mau">Cà Mau</option>
+                        <option value="can-tho">Cần Thơ</option>
+                        <option value="cao-bang">Cao Bằng</option>
+                        <option value="da-nang">Đà Nẵng</option>
+                        <option value="dak-lak">Đắk Lắk</option>
+                        <option value="dak-nong">Đắk Nông</option>
+                        <option value="dien-bien">Điện Biên</option>
+                        <option value="dong-nai">Đồng Nai</option>
+                        <option value="dong-thap">Đồng Tháp</option>
+                        <option value="gia-lai">Gia Lai</option>
+                        <option value="ha-giang">Hà Giang</option>
+                        <option value="ha-nam">Hà Nam</option>
+                        <option value="ha-noi">Hà Nội</option>
+                        <option value="ha-tinh">Hà Tĩnh</option>
+                        <option value="hai-duong">Hải Dương</option>
+                        <option value="hai-phong">Hải Phòng</option>
+                        <option value="hau-giang">Hậu Giang</option>
+                        <option value="hoa-binh">Hòa Bình</option>
+                        <option value="hung-yen">Hưng Yên</option>
+                        <option value="khanh-hoa">Khánh Hòa</option>
+                        <option value="kien-giang">Kiên Giang</option>
+                        <option value="kon-tum">Kon Tum</option>
+                        <option value="lai-chau">Lai Châu</option>
+                        <option value="lam-dong">Lâm Đồng</option>
+                        <option value="lang-son">Lạng Sơn</option>
+                        <option value="lao-cai">Lào Cai</option>
+                        <option value="long-an">Long An</option>
+                        <option value="nam-dinh">Nam Định</option>
+                        <option value="nghe-an">Nghệ An</option>
+                        <option value="ninh-binh">Ninh Bình</option>
+                        <option value="ninh-thuan">Ninh Thuận</option>
+                        <option value="phu-tho">Phú Thọ</option>
+                        <option value="phu-yen">Phú Yên</option>
+                        <option value="quang-binh">Quảng Bình</option>
+                        <option value="quang-nam">Quảng Nam</option>
+                        <option value="quang-ngai">Quảng Ngãi</option>
+                        <option value="quang-ninh">Quảng Ninh</option>
+                        <option value="quang-tri">Quảng Trị</option>
+                        <option value="soc-trang">Sóc Trăng</option>
+                        <option value="son-la">Sơn La</option>
+                        <option value="tay-ninh">Tây Ninh</option>
+                        <option value="thai-binh">Thái Bình</option>
+                        <option value="thai-nguyen">Thái Nguyên</option>
+                        <option value="thanh-hoa">Thanh Hóa</option>
+                        <option value="thua-thien-hue">Thừa Thiên Huế</option>
+                        <option value="tien-giang">Tiền Giang</option>
+                        <option value="tp-ho-chi-minh">TP Hồ Chí Minh</option>
+                        <option value="tra-vinh">Trà Vinh</option>
+                        <option value="tuyen-quang">Tuyên Quang</option>
+                        <option value="vinh-long">Vĩnh Long</option>
+                        <option value="vinh-phuc">Vĩnh Phúc</option>
+                        <option value="yen-bai">Yên Bái</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <button type="submit">Gửi thông tin</button>
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

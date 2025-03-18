@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Session9_Exercise7</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f5f5f5;
+        }
+
+        .slider {
+            position: relative;
+            width: 800px;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .slides {
+            display: flex;
+            width: 400%;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .slide {
+            width: 100%;
+            position: relative;
+        }
+
+        .slide img {
+            width: 100%;
+            height: 100%;
+            border-radius: 10px;
+            object-fit: cover;
+        }
+
+        /* Hiệu ứng overlay */
+        .slide-content {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            color: white;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 15px;
+            border-radius: 5px;
+        }
+
+        .slide-content h3 {
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .slide-content p {
+            font-size: 14px;
+        }
+
+        /* Pagination (Nút số chọn ảnh) */
+        .radio-buttons {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 10px;
+        }
+
+        .radio-buttons input {
+            display: none;
+        }
+
+        .radio-buttons label {
+            width: 15px;
+            height: 15px;
+            background: lightgray;
+            border-radius: 50%;
+            margin: 0 5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .radio-buttons input:checked + label {
+            background: black;
+        }
+
+        /* Hiệu ứng hover */
+        .radio-buttons label:hover {
+            background: gray;
+        }
+
+        /* Nút điều hướng */
+        .prev, .next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.6);
+            color: white;
+            font-size: 20px;
+            padding: 10px 15px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+
+        .prev { left: 10px; }
+        .next { right: 10px; }
+
+        .prev:hover, .next:hover {
+            background: black;
+        }
+
+        /* Hiệu ứng chuyển slide */
+        #slide1:checked ~ .slides { transform: translateX(0); }
+        #slide2:checked ~ .slides { transform: translateX(-100%); }
+        #slide3:checked ~ .slides { transform: translateX(-200%); }
+        #slide4:checked ~ .slides { transform: translateX(-300%); }
+
+    </style>
+</head>
+<body>
+    
+    <div class="slider">
+        <!-- Nút điều hướng -->
+        <label for="slide4" class="prev">&#10094;</label>
+        <label for="slide2" class="next">&#10095;</label>
+
+        <!-- Radio Buttons -->
+        <div class="radio-buttons">
+            <input type="radio" id="slide1" name="slider" checked>
+            <label for="slide1"></label>
+            <input type="radio" id="slide2" name="slider">
+            <label for="slide2"></label>
+            <input type="radio" id="slide3" name="slider">
+            <label for="slide3"></label>
+            <input type="radio" id="slide4" name="slider">
+            <label for="slide4"></label>
+        </div>
+
+        <!-- Slider -->
+        <div class="slides">
+            <div class="slide">
+                <img src="https://i.cbc.ca/1.6133943.1628439752!/fileImage/httpImage/image.jpg_gen/derivatives/original_1180/messi-lionel-080821.jpg?im=" alt="Slide 1">
+                <div class="slide-content">
+                    <h3>LIONEL MESSI LEAVING LIGUE 1 TEAM</h3>
+                    <p>Paris Saint-Germain, Club Confirms</p>
+                </div>
+            </div>
+            <div class="slide">
+                <img src="https://source.unsplash.com/800x400/?soccer" alt="Slide 2">
+                <div class="slide-content">
+                    <h3>EURO LEAGUE FINALS</h3>
+                    <p>Top Scorer in the Final Tournament</p>
+                </div>
+            </div>
+            <div class="slide">
+                <img src="https://source.unsplash.com/800x400/?stadium" alt="Slide 3">
+                <div class="slide-content">
+                    <h3>FOOTBALL WORLD CUP</h3>
+                    <p>New Changes in the Upcoming Season</p>
+                </div>
+            </div>
+            <div class="slide">
+                <img src="https://source.unsplash.com/800x400/?champions" alt="Slide 4">
+                <div class="slide-content">
+                    <h3>CHAMPIONS LEAGUE FINAL</h3>
+                    <p>Who Will Take the Trophy Home?</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

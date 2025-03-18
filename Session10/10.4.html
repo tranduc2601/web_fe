@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Session10_Exercise4</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: white;
+        }
+
+        .header {
+            width: 90%;
+            max-width: 900px;
+            background-color: #f5e6d0;
+            padding: 40px;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: flex-end;
+            gap: 20px;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .nav a {
+            text-decoration: none;
+            color: black;
+        }
+
+        .content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 40px;
+           
+        }
+
+        .text {
+            max-width: 50%;
+        }
+
+        .text h1 {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .text p {
+            font-size: 14px;
+            color: #555;
+            margin-top: 10px;
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 10px 20px;
+            background-color: #e74c3c;
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .profile-img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 4px solid white;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <div class="nav">
+            <a href="#">Works</a>
+            <a href="#">Blog</a>
+            <a href="#">Contact</a>
+        </div>
+        <div class="content">
+            <div class="text">
+                <h1>Hi, I am John,<br>Creative Technologist</h1>
+                <p>
+                    Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. 
+                    Velit officia consequat duis enim velit mollit. Exercitation veniam 
+                    consequat sunt nostrud amet.
+                </p>
+                <a href="#" class="btn">Download Resume</a>
+            </div>
+            <img src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQyfvip9iBQpdmkTKzTQEgkZURnHZz-OusvIO_FbR7zSVnFcTzF" alt="Profile" class="profile-img">
+        </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,54 @@
+body {
+    background-color: #f8f9fa;
+    color: #000;
+}
+
+.btn-download {
+    background: black;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+}
+
+@media (max-width: 767px) {
+    .btn-download {
+        display: none;
+    }
+}
+
+.hero .avatar img {
+    width: 100%;
+    max-width: 250px;
+    border-radius: 50%;
+}
+
+.skill-box {
+    border: 2px solid black;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 120px;
+    height: 120px;
+    transition: 0.3s;
+    font-size: 24px;
+}
+
+.skill-box i {
+    font-size: 56px;
+    margin-bottom: 10px;
+}
+
+.skill-box:hover, .skill-box.active {
+    background: black;
+    color: white;
+}
+
+.experience-box {
+    border: 1px solid #444;
+    padding: 15px;
+    margin: 10px 0;
+    background: #222;
+    border-radius: 5px;
+}

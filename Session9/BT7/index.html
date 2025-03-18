@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Session9_Exercise7</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f8f8f8;
+        }
+
+        /* Header */
+        .header {
+            background-color: #2c2c2c;
+            color: white;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 18px;
+        }
+
+        .nav {
+            display: flex;
+            gap: 15px;
+        }
+
+        .nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        /* Nội dung chính */
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            background: white;
+            padding: 20px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .featured {
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .featured p {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        .featured a {
+            text-decoration: none;
+            color: #007bff;
+            font-size: 14px;
+        }
+
+        .other-posts {
+            font-size: 14px;
+            color: #444;
+        }
+
+        .other-posts div {
+            margin-bottom: 10px;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #2c2c2c;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            margin-top: 20px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <div class="header">
+        <h1>MY BLOG</h1>
+        <div class="nav">
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Posts</a>
+            <a href="#">Contact</a>
+        </div>
+    </div>
+
+    <!-- Nội dung chính -->
+    <div class="container">
+        <div class="featured">
+            <h2>Bài viết nổi bật</h2>
+            <p><strong>Tiêu đề bài viết thêm</strong></p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ut nulla ac lorem tristique tristique.</p>
+            <a href="#">Đọc thêm</a>
+        </div>
+
+        <div class="other-posts">
+            <h2>Các bài viết khác</h2>
+            <div><strong>Bài viết 1</strong></div>
+            <p>Lorem ipsum dolor sit amet...</p>
+
+            <div><strong>Bài viết 2</strong></div>
+            <p>Ut ut nulla ac lorem tincidunt...</p>
+
+            <div><strong>Bài viết 3</strong></div>
+            <p>Consectetur adipiscing elit...</p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        © 2024 My Blog. All rights reserved.
+    </div>
+
+</body>
+</html>

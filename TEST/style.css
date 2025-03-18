@@ -1,0 +1,99 @@
+body {
+  background-color: #f8f9fa;
+  color: #000;
+}
+.navbar .btn-download {
+  position: absolute;
+  right: 20px;
+  top: 10px;
+  background: black;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 5px;
+}
+.avatar {
+  position: absolute;
+  top: -20px;
+  left: -20px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 3px solid white;
+}
+.skills-container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px;
+  justify-content: center;
+  text-align: center;
+}
+.skill-box {
+  border: 2px solid black;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 120px;
+  height: 120px;
+  transition: 0.3s;
+  font-size: 24px;
+}
+.skill-box i {
+  font-size: 56px;
+  margin-bottom: 10px;
+}
+.skill-box:hover, .skill-box.active {
+  background: black;
+  color: white;
+}
+.experience-section {
+  background-color: #000;
+  color: white;
+  padding: 50px 0;
+}
+.experience-box {
+  border: 1px solid #444;
+  padding: 15px;
+  margin: 10px 0;
+  background: #222;
+  border-radius: 5px;
+}
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.hero .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+@media (min-width: 768px) {
+  .hero {
+      text-align: left;
+  }
+  .hero .container {
+      flex-direction: row;
+      justify-content: space-between;
+  }
+  .hero .text-start {
+      flex: 1;
+      text-align: left;
+  }
+  .hero .avatar {
+      flex: 1;
+      text-align: right;
+  }
+}
+@media (max-width: 767px) {
+  .hero .container {
+      flex-direction: column;
+  }
+  .hero .text-start {
+      margin-bottom: 20px;
+  }
+}

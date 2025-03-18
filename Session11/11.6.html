@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Flexbox Layout</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #ddd;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .wrapper {
+            width: 90%;
+            max-width: 1200px;
+            background: white;
+            padding: 20px;
+            box-shadow: 5px 5px 10px rgba(0,0,0,0.4);
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            background: #ccc;
+        }
+
+        .top-bar input {
+            width: 220px; 
+            padding: 8px;
+            font-size: 16px;
+        }
+
+        .radio-group {
+            display: flex;
+            gap: 10px;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .box {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 18px;
+            font-weight: bold;
+            padding: 20px;
+            color: white;
+        }
+
+       
+        .header { background: #6495ED; height: 80px; }
+        .signup { background: #ADD8E6; height: 60px; }
+        .content { background: #D3D3D3; height: 180px; } 
+        .feature { background: #FFC87C; height: 100px; }
+
+        /* mobilemobile */
+        .container {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .header { order: 1; width: 100%; }
+        .features { order: 2; display: flex; flex-direction: column; gap: 10px; }
+        .feature { width: 100%; }
+        .signup { order: 3; width: 100%; }
+        .content { order: 4; width: 100%; }
+
+        /* tablettablet */
+        @media (min-width: 768px) and (max-width: 1023px) {
+            .container {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                width: 90%;
+                margin: auto;
+            }
+
+            .header { order: 1; width: 100%; }
+            .content { order: 2; width: 100%; } 
+            .signup { order: 3; width: 100%; }
+
+        
+            .features {
+                order: 4;
+                display: flex;
+                flex-direction: row;
+                gap: 10px;
+                width: 100%;
+            }
+
+            .feature {
+                width: calc(33.33% - 10px);
+            }
+        }
+
+       /* dsktopdsktop */
+        @media (min-width: 1024px) {
+            .features {
+                flex-direction: row;
+            }
+            .feature {
+                width: calc(33.33% - 10px);
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="wrapper">
+       
+        <div class="top-bar">
+            <input type="text" placeholder="EXAMPLE HTML">
+            <div class="radio-group">
+                <input type="radio" name="option">
+                <input type="radio" name="option">
+                <input type="radio" name="option">
+            </div>
+        </div>
+
+      
+        <div class="container">
+            <div class="box header">HEADER</div>
+            <div class="features">
+                <div class="box feature">FEATURE 1</div>
+                <div class="box feature">FEATURE 2</div>
+                <div class="box feature">FEATURE 3</div>
+            </div>
+            <div class="box signup">SIGN UP</div>
+            <div class="box content">CONTENT</div>
+        </div>
+    </div>
+
+</body>
+</html>

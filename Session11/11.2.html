@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Session11_Exercise2</title>
+    <style>
+        * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: lightgray;
+    padding: 20px;
+}
+
+.container {
+    background-color: white;
+    width: 90%;
+    max-width: 1024px;
+    display: grid;
+    gap: 10px;
+    padding: 20px;
+}
+
+/* Màu sắc cho các box */
+.box {
+    background: #78bcbe;
+    height: 100px;
+}
+
+.box:nth-child(2) { background: #eb5c4a; }
+.box:nth-child(3) { background: #f7b343; }
+.box:nth-child(4) { background: #96caca; }
+.box:nth-child(5) { background: #3e5f7d; }
+.box:nth-child(6) { background: #ed7b71; }
+.box:nth-child(7) { background: #f5b343; }
+
+/* Desktop Layout */
+@media (min-width: 1025px) {
+    .container {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr); /* Chia layout thành 6 cột bằng nhau */
+    }
+
+    .box:nth-child(1) { grid-column: span 6; } 
+    .box:nth-child(2) { grid-column: span 3; } 
+    .box:nth-child(3) { grid-column: span 3; } 
+    .box:nth-child(4) { grid-column: span 6; } 
+    .box:nth-child(5) { grid-column: span 2; } 
+    .box:nth-child(6) { grid-column: span 2; } 
+    .box:nth-child(7) { grid-column: span 2; } 
+}
+
+/* Mobile Layout */
+@media (max-width: 1024px) {
+    .container {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .box {
+        width: 100%;
+    }
+}
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+    </div>
+
+</body>
+</html>

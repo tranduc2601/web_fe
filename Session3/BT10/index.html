@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Session3_Exercise10</title>
+</head>
+<body>
+    <form>
+        <table>
+            <tr>
+                <td><label for="name">Họ và tên:</label></td>
+                <td><input type="text" id="name"></td>
+            </tr>
+            <tr>
+                <td><label for="dob">Ngày sinh:</label></td>
+                <td><input type="date" id="dob"></td>
+            </tr>
+            <tr>
+                <td><label>Giới tính:</label></td>
+                <td>
+                    <input type="radio" id="male" name="gender" value="Nam">
+                    <label for="male">Nam</label>
+                    <input type="radio" id="female" name="gender" value="Nữ">
+                    <label for="female">Nữ</label>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="phone">Số điện thoại:</label></td>
+                <td><input type="tel" id="phone"></td>
+            </tr>
+            <tr>
+                <td><label for="email">Email:</label></td>
+                <td><input type="email" id="email"></td>
+            </tr>
+            <tr>
+                <td><label for="company">Tên công ty:</label></td>
+                <td><input type="text" id="company"></td>
+            </tr>
+            <tr>
+                <td><label for="role">Vai trò trong công ty:</label></td>
+                <td>
+                    <select id="role">
+                        <option value="ceo">Giám đốc điều hành (CEO)</option>
+                        <option value="finance-accounting">Tài Chính-Kế Toán</option>
+                        <option value="marketing-Sales">Marketing-Bán hàng</option>
+                        <option value="hr">Nhân sự</option>
+                        <option value="it">Công nghệ thông tin</option>
+                        <option value="operation">Vận hành</option>
+                        <option value="customer-service">Dịch vụ khách hàng</option>
+                        <option value="research-development">Nghiên cứu và phát triển</option>
+                        <option value="legal">Pháp lý</option>
+                        <option value="manager">Quản lý</option>
+                        <option value="staff">Nhân viên</option>
+                        <option value="other">Khác</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="company-size">Quy mô công ty:</label></td>
+                <td>
+                    <select id="company-size">
+                        <option value="tiny">Doanh nghiệp siêu nhỏ</option>
+                        <option value="small">Doanh nghiệp nhỏ</option>
+                        <option value="medium">Doanh nghiệp vừa</option>
+                        <option value="large">Doanh nghiệp lớn</option>
+                        <option value="huge">Doanh nghiệp siêu lớn</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="industry">Ngành nghề công ty:</label></td>
+                <td><input type="text" id="industry"></td>
+            </tr>
+            <tr>
+                <td><label for="reason">Lý do tham gia câu lạc bộ:</label></td>
+                <td><textarea id="reason" rows="2" cols="30"></textarea></td>
+            </tr>
+            <tr>
+                <td><label for="experience">Kinh nghiệm lãnh đạo:</label></td>
+                <td><textarea id="experience" rows="2" cols="30"></textarea></td>
+            </tr>
+            <tr>
+                <td><label for="goal">Mục tiêu khi tham gia câu lạc bộ:</label></td>
+                <td><textarea id="goal" rows="2" cols="30"></textarea></td>
+            </tr>
+            <tr>
+                <td><label>Chương trình sự kiện mong muốn tham gia:</label></td>
+                <td>
+                    <input type="checkbox" id="networking" name="event" value="Networking">
+                    <label for="networking">Networking</label>
+                    <input type="checkbox" id="workshops" name="event" value="Workshops">
+                    <label for="workshops">Workshops</label>
+                    <input type="checkbox" id="conference" name="event" value="Hội thảo">
+                    <label for="conference">Hội thảo</label>
+                </td>
+            </tr>
+            <tr>
+                <td><label>Đăng ký nhận bản tin:</label></td>
+                <td>
+                    <input type="checkbox" id="subscribe" name="subscribe" value="Có">
+                    <label for="subscribe">Có</label>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <button type="submit">Đăng ký hội viên</button>
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

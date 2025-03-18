@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Session8_Exercise3</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f8f8f8;
+            padding: 20px;
+        }
+
+        h2 {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 11px;
+            text-align: left;
+        }
+
+        .title-underline {
+            width: 200px;
+            height: 2px;
+            background: #d9534f;
+            margin-bottom: 20px;
+        }
+
+        .container {
+            display: flex;
+            gap: 20px;
+            justify-content: flex-start; /* Căn lề trái */
+        }
+
+        .card {
+            background: white;
+            padding: 20px;
+            text-align: left; /* Căn lề trái */
+            width: 300px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+
+        .card-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .card-text {
+            font-size: 14px;
+            color: #555;
+            flex-grow: 1;
+            margin-bottom: 15px;
+        }
+
+        .btn {
+            width: 80px; /* Giảm chiều rộng nút */
+            padding: 6px 10px;
+            border: 1px solid #d9534f;
+            font-size: 12px;
+            text-transform: uppercase;
+            color: #d9534f;
+            font-weight: bold;
+            border-radius: 3px;
+            text-align: center;
+        }
+
+        .btn:hover {
+            background: #d9534f;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Ipsum sed dolor</h2>
+    <div class="title-underline"></div>
+
+    <div class="container">
+        <div class="card">
+            <img src="https://klinikabocian.pl/images/pacjentka_1.jpg" alt="Person">
+            <div class="card-title">Interdum aenean</div>
+            <div class="card-text">
+                Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin aliquam facilisis ante interdum.
+            </div>
+            <button class="btn">More</button>
+        </div>
+
+        <div class="card">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0KrEPzKt5dLym7tN7R_tqc681-TC7iVtPYoWQ0Hi01lNf5g3a" alt="Tools">
+            <div class="card-title">Nulla amet dolore</div>
+            <div class="card-text">
+               Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin aliquam facilisis ante interdum.
+            </div>
+            <button class="btn">More</button>
+        </div>
+
+        <div class="card">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLDrHyTN16JvoIGgccZHoN7KFEkJQoh9r1UVKR6gVYpcWme-MV" alt="Van">
+            <div class="card-title">Tempus ullamcorper</div>
+            <div class="card-text">
+                Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin aliquam facilisis ante interdum.
+            </div>
+            <button class="btn">More</button>
+        </div>
+    </div>
+
+</body>
+</html>

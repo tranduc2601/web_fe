@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Session12_Exercise7</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/7b988689d5.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/uicons-regular-straight/css/uicons-regular-straight.css"> 
+    <style>
+        .card {
+            border-radius: 15px;
+            overflow: hidden;
+            position: relative;
+            color: white;
+            height: 400px;
+            width: 400px;
+        }
+        .card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; 
+        }
+        .card-body {
+            font-size: 35px; 
+            position: absolute;
+            top: 60%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-weight: bold;
+            text-align: center; 
+            width: 90%; 
+            padding: 10px;
+            border-radius: 10px;
+        }
+        .card-footer {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            right: 10px;
+            font-size: 0.9rem;
+            opacity: 0.9;
+            display: flex;
+            justify-content: space-between; 
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <!-- bootstrap không thì chịu k nổinổi -->
+    <div class="container mt-4">
+        <h4>Rikkei Cards</h4>
+        <hr>
+        <div class="row">
+            
+            <!-- card 1 -->
+            <div class="col-auto">
+                <div class="card">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/FullMoon2010.jpg/1200px-FullMoon2010.jpg" alt="Moon">
+                    <div class="card-body">
+                        <p>Short title, long jacket</p>
+                    </div>
+                    <div class="card-footer">
+                        <i class="fi fi-rs-circle-b"></i>
+                        <div>
+                            <i class="fa-solid fa-map-pin"></i> <span> Earth</span> 
+                            <i class="fa-solid fa-calendar-days"></i> <span>3d</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- card 2 -->
+            <div class="col-auto">
+                <div class="card">
+                    <img src="https://cdn.britannica.com/45/5645-050-B9EC0205/head-treasure-flower-disk-flowers-inflorescence-ray.jpg" alt="Flower">
+                    <div class="card-body">
+                        <p>Much longer title that wraps to multiple lines</p>
+                    </div>
+                    <div class="card-footer">
+                        <i class="fi fi-rs-circle-b"></i>
+                        <div>
+                            <i class="fa-solid fa-map-pin"></i> <span>🇵🇰 Pakistan</span> 
+                            <i class="fa-solid fa-calendar-days"></i> <span>4d</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- card 3 -->
+            <div class="col-auto">
+                <div class="card">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/8/88/Cauliflour_Jellyfish%2C_Cephea_cephea_at_Marsa_Shouna%2C_Red_Sea%2C_Egypt_SCUBA.jpg" alt="Jellyfish">
+                    <div class="card-body">
+                        <p>Another longer title belongs here</p>
+                    </div>
+                    <div class="card-footer">
+                        <i class="fi fi-rs-circle-b"></i>
+                        <div>
+                            <i class="fa-solid fa-map-pin"></i> <span>🇺🇸 California</span> 
+                            <i class="fa-solid fa-calendar-days"></i> <span>5d</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

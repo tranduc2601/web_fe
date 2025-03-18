@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <title>Featured Works</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #bababa;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 800px;
+            background-color: #bababa;
+            padding: 30px;
+        }
+
+        h2 {
+            font-size: 18px;
+            color: #23263e;
+            margin-bottom: 20px;
+        }
+
+        .work-item {
+            display: flex;
+            align-items: center;
+            background: #bababa;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+
+        .work-item img {
+            width: 100px;
+            height: 100px;
+            border-radius: 5px;
+            object-fit: cover;
+        }
+
+        .work-content {
+            margin-left: 15px;
+            flex: 1;
+        }
+
+        .work-title {
+            font-size: 16px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .work-meta {
+            display: flex;
+            align-items: center;
+            margin: 5px 0;
+        }
+
+        .year-badge {
+            background-color: #1f345a;
+            color: white;
+            font-size: 12px;
+            padding: 4px 8px;
+            border-radius: 15px;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .category {
+            font-size: 12px;
+            color: #666;
+        }
+
+        .work-description {
+            font-size: 12px;
+            color: #555;
+            margin-top: 5px;
+            line-height: 1.5;
+        }
+
+        /* Thêm thanh ngang */
+        .divider {
+            height: 1px;
+            background: #d3d3d3;
+            margin: 15px 0;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-icons a {
+            text-decoration: none;
+            color: #1f345a;
+            font-size: 20px;
+        }
+
+        .footer {
+            text-align: center;
+            font-size: 12px;
+            color: #666;
+            margin-top: 10px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Featured works</h2>
+
+        <!-- Bài viết 1 -->
+        <div class="work-item">
+            <img src="https://aleks-tl.github.io/john/img/featured_1.jpg" alt="Dashboard">
+            <div class="work-content">
+                <div class="work-title">Designing Dashboards</div>
+                <div class="work-meta">
+                    <span class="year-badge">2020</span>
+                    <span class="category">Dashboard</span>
+                </div>
+                <div class="work-description">
+                    Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. 
+                    Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.
+                </div>
+            </div>
+        </div>
+        <div class="divider"></div> <!-- Thanh ngang -->
+
+        <!-- Bài viết 2 -->
+        <div class="work-item">
+            <img src="https://aleks-tl.github.io/john/img/featured_2.jpg" alt="Illustration">
+            <div class="work-content">
+                <div class="work-title">Vibrant Portraits of 2020</div>
+                <div class="work-meta">
+                    <span class="year-badge">2018</span>
+                    <span class="category">Illustration</span>
+                </div>
+                <div class="work-description">
+                    Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. 
+                    Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.
+                </div>
+            </div>
+        </div>
+        <div class="divider"></div> <!-- Thanh ngang -->
+
+        <!-- Bài viết 3 -->
+        <div class="work-item">
+            <img src="https://cdn.dribbble.com/userupload/22095501/file/original-5749d8f1ff95a69f611f77ee5ba7a9ce.png?resize=400x300" alt="Typography">
+            <div class="work-content">
+                <div class="work-title">36 Days of Malayalam type</div>
+                <div class="work-meta">
+                    <span class="year-badge">2018</span>
+                    <span class="category">Typography</span>
+                </div>
+                <div class="work-description">
+                    Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. 
+                    Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.
+                </div>
+            </div>
+        </div>
+
+        <!-- Mạng xã hội -->
+        <div class="social-icons">
+            <i class="fa-brands fa-square-facebook"></i>
+            <i class="fa-brands fa-instagram"></i>
+            <i class="fa-brands fa-twitter"></i>
+            <i class="fa-brands fa-linkedin"></i>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">Copyright ©2020 All rights reserved</div>
+
+    </div>
+</body>
+</html>

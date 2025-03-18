@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Session12_Exercise1</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            padding: 20px;
+            width: 300px;
+        }
+        .custom-select {
+            background-color: #FF6F50;
+            color: white ;
+            border-radius: 0;/* chiuj chet */
+        }
+        .custom-select:focus {
+            border-color: #FF6F50;
+        }
+    </style>
+</head>
+<body>
+    <!-- de rounded-0 maf va bij bo goc, khong hieu -->
+    <div class="container">        
+        <select id="subjectSelect" class="form-select rounded-0 custom-select">
+            <option class="rounded-0" selected>chọn môn học</option>
+            <option class="rounded-0" value="HTML">HTML</option>
+            <option class="rounded-0" value="CSS">CSS</option>
+            <option class="rounded-0" value="JS">JS</option>
+        </select>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Session9_Exercise6</title>
+    <style>
+        * {
+            font-family: Arial, Helvetica, sans-serif;
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #ecf0f1;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            border: 0.5px solid black;
+            width: 800px;
+            height: 400px;
+            padding: 10px;
+            background-color: white;
+        }
+
+        .box {
+            background-color: #2C3E50;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .box-big {
+            width: calc(50% - 10px);
+            height: calc(50% - 10px);
+        }
+        .grid-2x2 {
+            display: flex;
+            flex-wrap: wrap;
+            width: calc(50% - 10px);
+            height: calc(50% - 10px);
+            gap: 10px;
+        }
+        .box-small{
+            width: calc(50% - 5px);
+            height: calc(50% - 5px);
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="box box-big">Big</div>
+        <div class="grid-2x2">
+            <div class="box box-small">Small 1</div>
+            <div class="box box-small">Small 2</div>
+            <div class="box box-small">Small 3</div>
+            <div class="box box-small">Small 4</div>
+        </div>
+        <div class="box box-big">Big</div>
+        <div class="grid-2x2">
+            <div class="box box-small">Small 5</div>
+            <div class="box box-small">Small 6</div>
+            <div class="box box-small">Small 7</div>
+            <div class="box box-small">Small 8</div>
+        </div>
+    </div>
+
+</body>
+</html>

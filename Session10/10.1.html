@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/7b988689d5.js" crossorigin="anonymous"></script>
+    <title>Session10_Exercise1</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            padding: 20px;
+        }
+
+        .navbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #e6e6e6;
+            padding: 15px 30px;
+            border-radius: 5px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            font-family: "Brush Script MT", cursive;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+
+        .nav-links li {
+            font-size: 14px;
+            color:#7a7a7a;
+            cursor: pointer;
+        }
+
+        .nav-links li:first-child {
+            font-weight: bold;
+            color: black;
+        }
+
+        .search-box {
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            display: flex;
+            color: white;
+            background-color: #8890a1;
+            border-radius: 5px;
+            padding: 3px 5px;
+            align-items: center;
+        }
+
+        .search-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <!-- kiem khong ra cai font chu giong voi deef -->
+        <div class="logo">Sport News</div>
+        <ul class="nav-links">
+            <li>Home</li>
+            <li>Category</li>
+            <li>Trending News</li>
+            <li>Recent News</li>
+            <li>Clubs Ranking</li>
+            <li>Sports Article</li>
+        </ul>
+        <div class="search-box">
+            <i class="fa-solid fa-magnifying-glass search-icon"></i>Search
+        </div>
+    </div>
+</body>
+</html>

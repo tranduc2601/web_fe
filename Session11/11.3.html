@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Session11_Exercise3</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+          
+            padding: 20px;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: auto;
+            gap: 10px;
+            padding: 20px;
+            background: repeating-linear-gradient(90deg, white 0px, white 20px, rgba(1,1,1,0.1) 3px, rgba(0,0,0,0.1) 60px);
+            border: 2px solid black;
+        }
+
+        .box {
+            height: 100px;
+        }
+
+       /* color dung rgb roi de opac xuong thap de hien thi cai bg dep hon, nhu dan design chuyen nghiep sieu vip promax */
+        .large-box { background: rgba(138, 3, 82, 0.7); grid-column: span 4; height: 150px; }
+        .small-box { background: rgb(219, 49, 127,0.7); grid-column: span 1; }   
+        .medium-box { background: rgb(222, 93, 158,0.7); grid-column: span 2; }
+        .long-box { background: rgb(237, 123, 184,0.7); grid-column: span 4; height: 150px; }
+
+        /* >=1200 */
+        @media (max-width: 1200px) {
+            .container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .large-box { grid-column: span 2; }
+            .small-box { grid-column: span 1; }
+            .medium-box { grid-column: span 1; }
+            .long-box { grid-column: span 2; }
+        }
+
+        /* <768 */
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: repeat(1, 1fr);
+            }
+
+            .large-box { grid-column: span 1; }
+            .small-box { grid-column: span 1; }
+            .medium-box { grid-column: span 1; }
+            .long-box { grid-column: span 1; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="box large-box"></div> <!-- 4 -->
+        <div class="box small-box"></div> 
+        <div class="box small-box"></div>
+        <div class="box small-box"></div>
+        <div class="box small-box"></div>
+        <div class="box medium-box"></div> <!-- 2x2 -->
+        <div class="box medium-box"></div>
+        <div class="box long-box"></div> <!-- 4leng -->
+    </div>
+
+</body>
+</html>

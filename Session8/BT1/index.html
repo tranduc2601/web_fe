@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Session8_Exercise1</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f8f8f8;
+            align-items: center;
+        }
+        .container {
+            display: flex;
+            gap: 20px;
+        }
+
+        .card {
+          background: white;
+          padding: 20px;
+          text-align: center;
+          width: 250px;
+          border: 1px solid #ddd;
+          display: flex;
+          flex-direction: column;
+        }
+
+        .card img {
+          height: 150px; /* chinh anh cho co cung chieu cao*/
+          margin: 10px 0;
+}
+
+        .date {
+            font-size: 12px;
+            color: #888;
+            margin-bottom: 5px;
+        }
+
+        .title {
+            font-size: 16px;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        .description {  
+            font-size: 13px;
+            color: #555;
+            margin-bottom: 15px;
+            flex-grow: 10;
+        }
+
+        .btn {
+            width: 50%;
+            padding: 8px 8px;
+            border: 1px solid black;
+            font-size: 10px;
+            text-transform: uppercase;
+            margin: 0 auto;
+        }
+
+        .btn:hover {
+            background: black;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="card">
+            <div class="date">April 21, 2017</div>
+            <div class="title">Sed magna ipsum faucibus</div>
+            <img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcTH7nC8Luw0Luy11-m9umvbaKMhAJHPpq0NfQ857AZUp2oklrhO"  alt="Car">
+            <div class="description">
+                <p>Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus.</p>
+            </div>
+            <button class="btn">Full Story</button>
+        </div>
+
+        <div class="card">
+            <div class="date">April 21, 2017</div>
+            <div class="title">Primis eget imperdiet lorem</div>
+            <img src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQKwmj0DGY9zSn0Jk3LWEvTwKnpKF60Dx4WS1OT2XYGry3F2y6X" alt="Businessman">
+            <div class="description">
+                <p>Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus.</p>
+            </div>
+            <button class="btn">Full Story</button>
+        </div>
+    </div>
+
+</body>
+</html>
