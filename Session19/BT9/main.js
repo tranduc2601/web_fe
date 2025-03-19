@@ -1,6 +1,6 @@
 // chuỗi + số ---> chuỗi + số bị đổi sang chuỗi
 let result1 = "javascript" + 5; // kq: "javascript5"
-// chuỗi - số ---> chuỗi bị đổi sang số, sau đó thực hiện phép trừ mà chuỗi không thể trừ nên kq là NaN
+// chuỗi - số ---> str sẽ được chuyển sang number [Number("javascipt")] để tính toán mà "javascript" không thể chuyển sang number nên phép toán sẽ là: NaN - 1 = NaN
 let result2 = "javascript" - 1; // kq: NaN
 // chuỗi + số ---> chuỗi + số bị đổi sang chuỗi
 let result3 = "3" + 2; // kq: "32"
@@ -12,7 +12,7 @@ let result5 = isNaN("123"); // kq: false
 let result6 = isNaN("hello"); // kq: true
 // Number.isNaN("123") ---> "123" là chuỗi, không phải NaN
 let result7 = Number.isNaN("123"); // kq: false
-//Number.isNaN(NaN) ---> chỉ NaN mới là NaN ---> kp chuỗi, số hay undefined
+//Number.isNaN(NaN) ---> chỉ NaN mới là NaN ---> không phải str, number hay undefined
 let result8 = Number.isNaN(NaN); // kq: true
 
 console.log(result1, result2, result3, result4, result5, result6, result7, result8);
