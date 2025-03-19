@@ -1,11 +1,6 @@
 let number = parseFloat(prompt("Nhập vào một số bất kỳ:"));
 // kiem tra hop le
-if (!isNaN(number)) {
-    //can bac 2
-    let squareRoot = Math.sqrt(number);
-    //in ra ket qua
-    document.writeln(`<p>Số bạn nhập: ${number}</p>`);
-    document.writeln(`<p>Căn bậc hai của ${number} là: ${squareRoot.toFixed(2)}</p>`);
-} else {
-    document.writeln("<p>Vui lòng nhập một số hợp lệ!</p>");
-}
+let result = !isNaN(number)
+    ? `<p>Số bạn nhập: ${number}</p><p>Căn bậc hai của ${number} là: ${Math.sqrt(number).toFixed(2)}</p>`
+    : "<p>Vui lòng nhập một số hợp lệ!</p>";
+document.writeln(result);
