@@ -1,6 +1,5 @@
 //input
 let r = parseFloat(prompt("Nhập bán kính của hình cầu:"));
-
 const actions = {
     invalidInput: () => {
         console.log("Vui lòng nhập một số lớn hơn 0.");
@@ -16,7 +15,6 @@ const actions = {
         console.log(` Thể tích hình cầu: ${theTich.toFixed(2)}`);
         console.log(` Diện tích bề mặt: ${dienTichBeMat.toFixed(2)}`);
         console.log(` Chu vi lớn nhất của hình cầu: ${chuViLonNhat.toFixed(2)}`);
-
         // pop up kết quả
         alert(
             `Kết quả:\n` +
@@ -26,7 +24,5 @@ const actions = {
         );
     }
 };
-
-// Determine action based on condition
 const actionKey = isNaN(r) || r <= 0 ? "invalidInput" : "validInput";
 actions[actionKey]();

@@ -12,7 +12,7 @@ if (
 } else {
     // chuyen doi sang 12h va thong bao
     const period = hours >= 12 ? "PM" : "AM";
-    const adjustedHours = hours === 0 ? 0 : (hours % 12 || 12);//0h sẽ là 0 A.M thay vì 12 A.M
+    const adjustedHours = hours === 0 ? 12 : (hours % 12 || 12); 
     const timeIn12HourFormat = `${adjustedHours}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')} ${period}`;
     alert(`Định dạng theo A.M || P.M: ${timeIn12HourFormat}`);
 }

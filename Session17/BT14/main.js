@@ -1,8 +1,7 @@
 //input bán kính và chiều cao từ người dùng
 let r = parseFloat(prompt("Nhập bán kính của hình trụ:"));
 let h = parseFloat(prompt("Nhập chiều cao của hình trụ:"));
-
-// Define a mapping of conditions to functions
+//damn, lai la toan
 const actions = {
     validInput: () => {
         let chuViDay = 2 * Math.PI * r;
@@ -28,7 +27,5 @@ const actions = {
         alert("Vui lòng nhập giá trị hợp lệ cho bán kính và chiều cao!");
     }
 };
-
-// Determine the action based on input validity
 const actionKey = isNaN(r) || isNaN(h) || r <= 0 || h <= 0 ? 'invalidInput' : 'validInput';
 actions[actionKey]();
