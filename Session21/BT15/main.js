@@ -1,41 +1,113 @@
-let amount = 3450000; // Change this value to test with different inputs
-
-if (amount % 1000 !== 0) {
-    console.log("Số tiền nhập vào phải chia hết cho 1000.");
-} else {
-    const denominations = [500000, 200000, 100000, 50000, 20000, 10000, 5000, 2000, 1000];
-    const result = {};
-
-    for (let i = 0; i < denominations.length; i++) {
-        let denom = denominations[i];
-        if (amount >= denom) {
-            result[denom] = Math.floor(amount / denom);
-            amount %= denom;
-        }
-    }
-
-    for (let denom in result) {
-        console.log(`${Number(denom).toLocaleString()} - ${result[denom]} tờ`);
-    }
+let atmBalance = 1000000000;
+let amountInput = prompt("Nhập số tiền cần rút [Số tiền rút phải là bội của 1000]:");
+// xoa dau "." va chuyen thanh so nguyen
+let amount = amountInput.replaceAll(".", "");
+// chuyen doi thu cong tu chuoi sang so (khong dung parseInt)
+let amountNum = 0;
+for (let i = 0; i < amount.length; i++) {
+    amountNum = amountNum * 10 + (amount[i] - "0");
 }
-
-// Example usage:
-amount = 3552000; // Change this value to test with another input
-if (amount % 1000 !== 0) {
-    console.log("Số tiền nhập vào phải chia hết cho 1000.");
+amount = amountNum;
+if (amount > atmBalance) {
+    alert("Số tiền trong cây ATM không đủ để thực hiện giao dịch.");
+} else if (amount % 1000 !== 0) {
+    alert("Số tiền nhập vào phải chia hết cho 1000.");
 } else {
-    const denominations = [500000, 200000, 100000, 50000, 20000, 10000, 5000, 2000, 1000];
-    const result = {};
-
-    for (let i = 0; i < denominations.length; i++) {
-        let denom = denominations[i];
-        if (amount >= denom) {
-            result[denom] = Math.floor(amount / denom);
-            amount %= denom;
-        }
+    document.writeln("<h3>Số tiền rút: " + amount + " VND</h3>");
+    document.writeln("<h4>Kết quả:</h4>");
+    // khong dung mang, xu ly tung menh gia thu cong
+    let remainingAmount = amount;
+    // menh gia 500000
+    let count = 0;
+    while (remainingAmount >= 500000) {
+        count++;
+        remainingAmount -= 500000;
+    }
+    if (count > 0) {
+        document.writeln("500000 VND - " + count + " tờ <br>");
+    }
+    // menh gia 200000
+    count = 0;
+    while (remainingAmount >= 200000) {
+        count++;
+        remainingAmount -= 200000;
+    }
+    if (count > 0) {
+        document.writeln("200000 VND - " + count + " tờ <br>");
     }
 
-    for (let denom in result) {
-        console.log(`${Number(denom).toLocaleString()} - ${result[denom]} tờ`);
+    // menh gia 100000
+    count = 0;
+    while (remainingAmount >= 100000) {
+        count++;
+        remainingAmount -= 100000;
     }
+    if (count > 0) {
+        document.writeln("100000 VND - " + count + " tờ <br>");
+    }
+
+    // menh gia 50000
+    count = 0;
+    while (remainingAmount >= 50000) {
+        count++;
+        remainingAmount -= 50000;
+    }
+    if (count > 0) {
+        document.writeln("50000 VND - " + count + " tờ <br>");
+    }
+
+    // menh gia 20000
+    count = 0;
+    while (remainingAmount >= 20000) {
+        count++;
+        remainingAmount -= 20000;
+    }
+    if (count > 0) {
+        document.writeln("20000 VND - " + count + " tờ <br>");
+    }
+
+    // menh gia 10000
+    count = 0;
+    while (remainingAmount >= 10000) {
+        count++;
+        remainingAmount -= 10000;
+    }
+    if (count > 0) {
+        document.writeln("10000 VND - " + count + " tờ <br>");
+    }
+
+    // menh gia 5000
+    count = 0;
+    while (remainingAmount >= 5000) {
+        count++;
+        remainingAmount -= 5000;
+    }
+    if (count > 0) {
+        document.writeln("5000 VND - " + count + " tờ <br>");
+    }
+
+    // menh gia 2000
+    count = 0;
+    while (remainingAmount >= 2000) {
+        count++;
+        remainingAmount -= 2000;
+    }
+    if (count > 0) {
+        document.writeln("2000 VND - " + count + " tờ <br>");
+    }
+
+    // menh gia 1000
+    count = 0;
+    while (remainingAmount >= 1000) {
+        count++;
+        remainingAmount -= 1000;
+    }
+    if (count > 0) {
+        document.writeln("1000 VND - " + count + " tờ <br>");
+    }
+
+    // cap nhat so tien con lai trong atm
+    atmBalance -= amount;
+    console.log("Số tiền còn lại trong ATM: " + atmBalance + " VND");
 }
+// if else xong ngoo luon
