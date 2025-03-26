@@ -11,5 +11,5 @@ if (width > 1 && height > 1) {
     //canh bottom
     document.writeln("*".repeat(width) + "<br>");
 } else {
-    document.writeln("Vui lòng nhập số lớn hơn 1!");
+    document.writeln("Hãy nhập số lơns hơn 1.");
 }

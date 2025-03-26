@@ -1,21 +1,12 @@
 let input = prompt("Nhập vào một chuỗi số:");
 let digits = input.split('');
-let isValid = true;
-// kiem tra input co phai so khong
-for (let i = 0; i < digits.length; i++) {
-    if (isNaN(digits[i]) || digits[i] === ' ') {
-        isValid = false;
-        break;
-    }
-}
+//kiem tra xem tats ca ky tu co phai so khong
+let isValid = digits.every(char => !isNaN(char) && char !== ' ');
+
 if (isValid) {
-    let maxDigit = digits[0];
-    for (let i = 1; i < digits.length; i++) {
-        if (digits[i] > maxDigit) {
-            maxDigit = digits[i];
-        }
-    }
+    // findMAX ---> chuyen mang ve so va su dung Math.max
+    let maxDigit = Math.max(...digits.map(Number));
     alert(`${maxDigit} là số lớn nhất trong dãy số`);
 } else {
-    alert("dãy số không hợp lệ");
+    alert("Dãy số không hợp lệ");
 }

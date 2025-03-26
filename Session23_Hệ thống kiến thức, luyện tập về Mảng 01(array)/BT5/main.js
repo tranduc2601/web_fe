@@ -1,12 +1,16 @@
-let numbers = [2, 6, 0, 1, 2006]; 
-let evenSum = 0;    let oddSum = 0;
+let n = parseInt(prompt("Nhập số phần tử của mảng: "));
+let numbers = [];
+for (let i = 0; i < n; i++) {
+    let element = prompt(`Nhập phần tử thứ ${i + 1}:`);
+    numbers.push(isNaN(element) ? element : parseFloat(element));
+}
+
+let numberSum = 0;
 for (let i = 0; i < numbers.length; i++) {
-    if (numbers[i] % 2 === 0) { 
-        evenSum += numbers[i];
-    } else {
-        oddSum += numbers[i]; 
+    if (typeof numbers[i] === "number" && !isNaN(numbers[i])) {
+        numberSum += numbers[i];
     }
 }
+
 document.writeln(`Mảng: [${numbers}] <br>`);
-document.writeln(`Tổng các số chẵn: ${evenSum} <br>`);
-document.writeln(`Tổng các số lẻ: ${oddSum} <br>`);
+document.writeln(`Tổng các ký tự là số: ${numberSum} <br>`);

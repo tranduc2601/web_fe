@@ -28,3 +28,4 @@ for (let i = n; i > 0; i--) {
 document.writeln("</td>");
 
 document.writeln("</tr></table>");
+// chua nghi ra cach thay the ki tu khoang trang de code sach hon

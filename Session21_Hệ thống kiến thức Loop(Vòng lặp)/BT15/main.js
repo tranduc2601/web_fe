@@ -110,4 +110,4 @@ if (amount > atmBalance) {
     atmBalance -= amount;
     console.log("Số tiền còn lại trong ATM: " + atmBalance + " VND");
 }
-// if else xong ngoo luon
+// if else xong kho luon, thoi gian lam 1 bai = 7 bai gop lai :>

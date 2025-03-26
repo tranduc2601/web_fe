@@ -1,31 +1,15 @@
-let input = prompt("Nhập dãy số:");
-// chuyen chuoi thanh ki tu
+// Nhập vào số phần tử của mảng
+let n = parseInt(prompt("Nhập vào số phần tử của mảng:"));
 let arr = [];
-let isValid = true;
-// kiem tra ki tu co phia so hay khong
-for (let i = 0; i < input.length; i++) {
-    if (input[i] < '0' || input[i] > '9') {
-        isValid = false;
-        break;
-    }
-    arr[i] = input[i]; // gan lai gia tri cho mang
+
+// Nhập các phần tử vào mảng
+for (let i = 0; i < n; i++) {
+    let value = parseFloat(prompt(`Nhập phần tử thứ ${i + 1}:`));
+    arr.push(value);
 }
-// thong bao loi khi ki tu khong dung
-if (!isValid) {
-    document.writeln("Dãy không hợp lệ");
-} else {
-    // tao mang reverse de chua mang dao nguoc
-    let reversedArr = [];
-    let j = 0;
-    // dao nguoc
-    for (let i = arr.length - 1; i >= 0; i--) {
-        reversedArr[j] = arr[i];
-        j++;
-    }
-    // ep kieu thanh chuoi
-    let result = "";
-    for (let i = 0; i < reversedArr.length; i++) {
-        result += reversedArr[i];
-    }
-    document.writeln("Kết quả đảo ngược: " + result);
-}
+
+// Đếm số nguyên âm trong mảng
+let negativeCount = arr.filter(num => num < 0).length;
+
+// In kết quả ra màn hình
+console.log(`Số lượng số nguyên âm trong mảng là: ${negativeCount}`);
