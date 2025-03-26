@@ -76,3 +76,4 @@ while (true) {
             alert("lua chon khong hop le! vui long chon lai.");
     }
 }
+// da guc nga sau 2t

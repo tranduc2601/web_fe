@@ -1,16 +1,14 @@
-// nhap mot chuoi so tu nguoi dung
 let input = prompt("nhap day so:");
 // tach chuoi thanh mang cac ky tu rieng le
 let arr = input.split('');  
-// kiem tra xem tat ca cac phan tu co phai la chu so (0-9) khong
+// ktr element co phair tu 0-9
 let isNumericOnly = arr.every(char => char >= '0' && char <= '9');
 if (!isNumericOnly) {  
-    // neu co ky tu khong phai so, in ra thong bao loi
+    //0 phai so thi cook 
     document.writeln("day khong hop le");
 } else {  
-    // neu tat ca deu la so, dao nguoc mang va noi thanh chuoi moi
+    // so ---> methodarr: reverse ---> dao nguoc chuoi 
     let result = arr.reverse().join('');
-    // in ra ket qua sau khi dao nguoc
     document.writeln("ket qua dao nguoc: " + result);
 }
-//ap dung them phuong thuc ben ngoai
+//ap dung them phuong thuc arr
