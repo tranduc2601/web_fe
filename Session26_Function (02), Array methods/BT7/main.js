@@ -1,15 +1,18 @@
-function capitalizeWords(str) {
-    if (typeof str !== "string") {
+function filterEvenNumbers(numbers) {
+    let isArray = Array.isArray(numbers);
+    if (!isArray) {
         return "Dữ liệu không hợp lệ";
     }
-
-    return str
-        .toLowerCase()
-        .split(" ")
-        .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-        .join(" ");
+    let arrayLength = numbers.length;
+    if (arrayLength === 0) {
+        return "Mảng không có dữ liệu";
+    }
+    let evenNumbers = numbers.filter(function (number) {
+        let isEven = number % 2 === 0;
+        return isEven;
+    });
+    return evenNumbers;
 }
-const userInput = prompt("Nhập vào một chuỗi:");
-alert(capitalizeWords(userInput));
-
-
+console.log(filterEvenNumbers([2, 5, 10]));
+console.log(filterEvenNumbers([]));
+console.log(filterEvenNumbers("abc"));

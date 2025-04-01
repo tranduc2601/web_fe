@@ -1,20 +1,31 @@
-let users = [];
-function registerEmail(email) {
-    //email<- @ ---> end: ".vn" || ".com"
-    const emailRegex = /^[^\s@]+@[^\s@]+\.(com|vn)$/;
-    if (!emailRegex.test(email)) {
-        console.log("Email không hợp lệ!");
-        return;
+function calcEvenOddSums(numbers) {
+    let isArray = Array.isArray(numbers);
+    if (!isArray) {
+        return "Dữ liệu không hợp lệ";
     }
-    // ktr appeared
-    if (users.includes(email)) {
-        console.log("Tài khoản đã tồn tại!");
-    } else {
-        users.push(email);
-        console.log("Đăng ký thành công!");
+    let arrayLength = numbers.length;
+    if (arrayLength === 0) {
+        return "Mảng không có dữ liệu";
     }
+    let numbersInRange = numbers.filter(function (number) {
+        let isInRange = number >= 10 && number <= 20;
+        return isInRange;
+    });
+    let evenNumbers = numbersInRange.filter(function (number) {
+        let isEven = number % 2 === 0;
+        return isEven;
+    });
+    let oddNumbers = numbersInRange.filter(function (number) {
+        let isOdd = number % 2 !== 0;
+        return isOdd;
+    });
+    let totalEven = evenNumbers.reduce(function (sum, number) {
+        return sum + number;
+    }, 0);
+    let totalOdd = oddNumbers.reduce(function (sum, number) {
+        return sum + number;
+    }, 0);
+    let result = "totalEven = " + totalEven + "\ntotalOdd = " + totalOdd;
+    return result;
 }
-registerEmail("user@example.com");
-registerEmail("user@example.com");
-registerEmail("invalid_email@xyz");
-registerEmail("user@example.vn"); 
+console.log(calcEvenOddSums([10, 11, 12, 13, 14, 15]));
