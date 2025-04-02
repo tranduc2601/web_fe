@@ -1,21 +1,5 @@
-
-//ham tim so hoan hao va in ra ket qua
-
-function isPerfectNumber(n) {
-    let sum = 0;
-    for (let i = 1; i < n; i++) {
-        if (n % i === 0) {
-            sum += i;
-        }
-    }
-    return sum === n;
-}
-
-let number = parseInt(prompt("Nhap so:"));
-
-if (isPerfectNumber(number)) {
-    console.log(`${number} la so hoan hao.`);
-} else {
-    console.log(`${number} khong phai la so hoan hao.`);
-
-}
+const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];  
+if (!Array.isArray(arr) || arr.length === 0) return console.log("Dữ liệu không hợp lệ");  
+const evenSum = arr.filter(n => n % 2 === 0).reduce((a, b) => a + b, 0);  
+const oddSum = arr.filter(n => n % 2 !== 0).reduce((a, b) => a + b, 0);  
+console.log(`totalEven = ${evenSum}, totalOdd = ${oddSum}`);  
