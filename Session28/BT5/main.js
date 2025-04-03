@@ -1,6 +1,6 @@
 const company = {
     name: "RikkeiSoft",
-    location: "Hòo Chí Minh",
+    location: "Hồ Chí Minh",
     employees: [
         { name: "Nguyễn Văn Luận", position: "Developer" },
         { name: "Nguyễn Văn Hoàng", position: "Tester" },
