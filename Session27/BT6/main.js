@@ -13,8 +13,6 @@ function isArithmeticSequence(arr) {
     }
     return true;
 }
-
-// Test cases
-alert(isArithmeticSequence([2, 4, 6, 8])); // TRUE
-alert(isArithmeticSequence([3, 6, 9, 12, 14])); // FALSE
-alert(isArithmeticSequence("abc")); // dữ liệu không hợp lệ
+alert(isArithmeticSequence([2, 4, 6, 8])); 
+alert(isArithmeticSequence([3, 6, 9, 12, 14]));
+alert(isArithmeticSequence("abc"));
