@@ -1,11 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Session27_Exercise6</title>
+    <title>Quản lý Danh Bạ</title>
 </head>
 <body>
+    <h2>Quản lý Danh Bạ</h2>
+    <button onclick="addContact()">Thêm liên hệ</button><br>
+    <button onclick="showContact()">Hiển thị liên hệ</button><br>
+    <button onclick="searchContactByName()">Tìm kiếm theo tên</button><br>
+    <button onclick="searchContactByPhone()">Tìm kiếm theo số điện thoại</button><br>
+    <button onclick="updateContact()">Cập nhật liên hệ</button><br>
+    <button onclick="deleteContact()">Xóa liên hệ</button><br>
+    <button onclick="sortContacts()">Sắp xếp danh bạ</button><br>
+    
+    <div id="output"></div>
+
     <script src="main.js"></script>
 </body>
 </html>
