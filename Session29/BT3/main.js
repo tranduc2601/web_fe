@@ -5,15 +5,20 @@ function addDish(category, dishName, price, description) {
         menu[category] = [];
     }
     menu[category].push({ name: dishName, price, description });
-    console.log(`Added ${dishName} to category ${category}.`);
+    alert(`Đã thêm món "${dishName}" vào danh mục "${category}".`);
 }
 
 function removeDish(category, dishName) {
     if (menu[category]) {
+        const initialLength = menu[category].length;
         menu[category] = menu[category].filter(dish => dish.name !== dishName);
-        console.log(`Removed ${dishName} from category ${category}.`);
+        if (menu[category].length < initialLength) {
+            alert(`Đã xóa món "${dishName}" khỏi danh mục "${category}".`);
+        } else {
+            alert(`Không tìm thấy món "${dishName}" trong danh mục "${category}".`);
+        }
     } else {
-        console.log(`Category ${category} does not exist.`);
+        alert(`Danh mục "${category}" không tồn tại.`);
     }
 }
 
@@ -22,83 +27,85 @@ function updateDish(category, dishName, newDetails) {
         const dish = menu[category].find(dish => dish.name === dishName);
         if (dish) {
             Object.assign(dish, newDetails);
-            console.log(`Updated ${dishName} in category ${category}.`);
+            alert(`Đã cập nhật món "${dishName}" trong danh mục "${category}".`);
         } else {
-            console.log(`${dishName} not found in category ${category}.`);
+            alert(`Không tìm thấy món "${dishName}" trong danh mục "${category}".`);
         }
     } else {
-        console.log(`Category ${category} does not exist.`);
+        alert(`Danh mục "${category}" không tồn tại.`);
     }
 }
 
 function displayMenu() {
-    console.log("Menu:");
+    let output = "TOÀN BỘ MENU:\n";
     for (const category in menu) {
-        console.log(`Category: ${category}`);
+        output += `Danh mục: ${category}\n`;
         menu[category].forEach(dish => {
-            console.log(`  - ${dish.name}: ${dish.price} (${dish.description})`);
+            output += `  ${dish.name} - ${dish.price}đ (${dish.description})\n`;
         });
     }
+    alert(output);
 }
 
 function searchDish(dishName) {
-    console.log(`Searching for ${dishName}...`);
     for (const category in menu) {
         const dish = menu[category].find(dish => dish.name === dishName);
         if (dish) {
-            console.log(`Found in category ${category}: ${dish.name} - ${dish.price} (${dish.description})`);
+            alert(`Tìm thấy trong danh mục "${category}":\n${dish.name} - ${dish.price}đ\n(${dish.description})`);
             return;
         }
     }
-    console.log(`${dishName} not found in the menu.`);
+    alert(`Không tìm thấy món "${dishName}" trong menu.`);
 }
 
 function main() {
     let choice;
     do {
-        console.log("\nMenu Management System:");
-        console.log("1. Add Dish");
-        console.log("2. Remove Dish");
-        console.log("3. Update Dish");
-        console.log("4. Display Menu");
-        console.log("5. Search Dish");
-        console.log("6. Exit");
-        choice = parseInt(prompt("Enter your choice: "));
+        choice = prompt(
+            "QUẢN LÝ MENU NHÀ HÀNG\n" +
+            "1. Thêm món ăn vào danh mục\n" +
+            "2. Xóa món ăn khỏi danh mục\n" +
+            "3. Cập nhật món ăn\n" +
+            "4. Hiển thị toàn bộ menu\n" +
+            "5. Tìm kiếm món ăn theo tên\n" +
+            "6. Thoát\n\n" +
+            "Nhập lựa chọn của bạn (1-6):"
+        );
 
-        switch (choice) {
+        switch (parseInt(choice)) {
             case 1:
-                const category = prompt("Enter category: ");
-                const dishName = prompt("Enter dish name: ");
-                const price = parseFloat(prompt("Enter price: "));
-                const description = prompt("Enter description: ");
-                addDish(category, dishName, price, description);
+                const catAdd = prompt("Nhập danh mục:");
+                const nameAdd = prompt("Nhập tên món:");
+                const priceAdd = parseFloat(prompt("Nhập giá món:"));
+                const descAdd = prompt("Nhập mô tả:");
+                addDish(catAdd, nameAdd, priceAdd, descAdd);
                 break;
             case 2:
-                const removeCategory = prompt("Enter category: ");
-                const removeDishName = prompt("Enter dish name to remove: ");
-                removeDish(removeCategory, removeDishName);
+                const catRemove = prompt("Nhập danh mục:");
+                const nameRemove = prompt("Nhập tên món cần xóa:");
+                removeDish(catRemove, nameRemove);
                 break;
             case 3:
-                const updateCategory = prompt("Enter category: ");
-                const updateDishName = prompt("Enter dish name to update: ");
-                const newPrice = parseFloat(prompt("Enter new price: "));
-                const newDescription = prompt("Enter new description: ");
-                updateDish(updateCategory, updateDishName, { price: newPrice, description: newDescription });
+                const catUpdate = prompt("Nhập danh mục:");
+                const nameUpdate = prompt("Nhập tên món cần cập nhật:");
+                const priceUpdate = parseFloat(prompt("Nhập giá mới:"));
+                const descUpdate = prompt("Nhập mô tả mới:");
+                updateDish(catUpdate, nameUpdate, { price: priceUpdate, description: descUpdate });
                 break;
             case 4:
                 displayMenu();
                 break;
             case 5:
-                const searchName = prompt("Enter dish name to search: ");
-                searchDish(searchName);
+                const nameSearch = prompt("Nhập tên món cần tìm:");
+                searchDish(nameSearch);
                 break;
             case 6:
-                console.log("Exiting...");
+                alert("Đã thoát chương trình.");
                 break;
             default:
-                console.log("Invalid choice. Please try again.");
+                alert("Lựa chọn không hợp lệ, vui lòng thử lại.");
         }
-    } while (choice !== 6);
+    } while (choice !== "6");
 }
 
 main();
