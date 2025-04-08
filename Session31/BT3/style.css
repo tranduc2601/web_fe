@@ -1,0 +1,28 @@
+
+#boxContainer {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .box {
+    width: 100px;
+    height: 100px;
+    text-align: center;
+    line-height: 100px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  .green {
+    background-color: green;
+  }
+  
+  .red {
+    background-color: red;
+  }
+  
+  .violet {
+    background-color: violet;
+  }
+  

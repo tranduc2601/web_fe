@@ -1,11 +1,9 @@
-// Select all squares and the container
-const squares = document.querySelectorAll('.square');
-const container = document.querySelector('.container');
-
-// Add click event listeners to each square
-squares.forEach(square => {
-    square.addEventListener('click', () => {
-        const color = window.getComputedStyle(square).backgroundColor;
-        container.style.backgroundColor = color;
-    });
+//danh sasch
+const boxes = document.querySelectorAll(".box");
+// click event cho các ô màu
+boxes.forEach(box => {
+  box.addEventListener("click", function () {
+    const color = window.getComputedStyle(box).backgroundColor;
+    document.getElementById("mainBody").style.backgroundColor = color;
+  });
 });

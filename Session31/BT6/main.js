@@ -1,10 +1,12 @@
-function isPalindrome(str) {
-    if (typeof str !== "string") {
-        return "dữ liệu không hợp lệ";
-    }
+const loginBtn = document.getElementById("loginBtn");
 
-    const reversedStr = str.split("").reverse().join("");
-    return str === reversedStr ? "là chuỗi đối xứng" : "không phải chuỗi đối xứng";
-}
-const userInput = prompt("Nhập vào một chuỗi:");
-alert(isPalindrome(userInput));
+loginBtn.addEventListener("click", () => {
+  const username = document.getElementById("username").value;
+  const password = document.getElementById("password").value;
+
+  if (username === "huanrose@gmail.com" && password === "123456") {
+    console.log("Đăng nhập thành công");
+  } else {
+    console.log("Đăng nhập thất bại");
+  }
+});

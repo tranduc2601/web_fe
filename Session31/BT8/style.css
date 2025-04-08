@@ -1,0 +1,70 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    padding: 50px;
+  }
+  .h2 {
+    display: block;
+  }
+  .todo-container {
+    width: 500px;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  }
+  
+  .header {
+    background-color: #f44336;
+    padding: 10px;
+    color: white;
+    display: flex;
+    align-items: center;
+  }
+  
+  .header h2 {
+    flex: 1;
+    margin: 0;
+  }
+  
+  .header input {
+    flex: 2;
+    padding: 5px;
+    margin-left: 10px;
+  }
+  
+  .header button {
+    padding: 6px 12px;
+    margin-left: 10px;
+    background-color: white;
+    color: #f44336;
+    border: none;
+    cursor: pointer;
+  }
+  
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  li {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+    position: relative;
+    background-color: #eee;
+  }
+  
+  li.completed {
+    text-decoration: line-through;
+    color: gray;
+    background-color: #ccc;
+  }
+  
+  li .close {
+    position: absolute;
+    right: 10px;
+    top: 12px;
+    cursor: pointer;
+  }
+  
