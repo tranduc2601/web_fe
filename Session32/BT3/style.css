@@ -1,0 +1,15 @@
+body {
+  font-family: "Times New Roman", serif;
+  margin: 20px;
+}
+
+input, button {
+  font-size: 20px;
+  padding: 5px 10px;
+  margin-right: 5px;
+}
+
+ol {
+  margin-top: 20px;
+  font-size: 24px;
+}

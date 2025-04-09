@@ -1,0 +1,24 @@
+body {
+    font-family: "Times New Roman", serif;
+    text-align: center;
+    margin-top: 50px;
+  }
+  
+  .red {
+    color: red;
+  }
+  
+  #countBtn {
+    font-size: 48px;
+    padding: 10px 40px;
+    border-radius: 10px;
+    background-color: #eee;
+    border: 2px solid gray;
+    cursor: pointer;
+    margin-bottom: 40px;
+  }
+  
+  h1 {
+    font-size: 48px;
+  }
+  

@@ -1,88 +1,95 @@
-// input : Sản phẩm, lựa chọn, tên sản phẩm mua
-// output: ds sp, hiển thị tb sản phẩm, giỏ hàng sau khi mua, tổng hóa đơn
+let employees = [
+    { name: "Nguyễn Văn A", position: "Developer" },
+    { name: "Trần Thị B", position: "Designer" },
+    { name: "Phạm Văn C", position: "Project Manager" },
+    { name: "Lê Thị D", position: "QA Engineer" },
+    { name: "Vũ Văn E", position: "DevOps" },
+    { name: "Hoàng Thị F", position: "HR Manager" },
+];
 
-let products= [ ["mì tôm", 5, 5000], ["bánh mì", 12, 15000], ["bánh bao", 5, 8000], ["mèn mén", 30, 20000]]
+const rowsPerPage = 3; // Số hàng trên mỗi trang
+let currentPage = 1;
 
-let cart = []
+// Hàm hiển thị danh sách nhân viên
+function renderTable(page) {
+    const tableBody = document.getElementById("employeeTable");
+    tableBody.innerHTML = ""; // Xóa nội dung cũ
 
-function showProduct() {
-    for (let i = 0; i < products.length; i++) { 
-       console.log(`${i+1}-${products[i][0]} - Số lượng: ${products[i][1]} - Giá: ${products[i][2]} vnđ`);
+    const start = (page - 1) * rowsPerPage;
+    const end = start + rowsPerPage;
+    const paginatedEmployees = employees.slice(start, end);
+
+    paginatedEmployees.forEach((employee, index) => {
+        const row = document.createElement("tr");
+        row.innerHTML = `
+            <td>${start + index + 1}</td>
+            <td>${employee.name}</td>
+            <td>${employee.position}</td>
+        `;
+        tableBody.appendChild(row);
+    });
+
+    renderPagination();
+}
+
+// Hàm hiển thị phân trang
+function renderPagination() {
+    const paginationDiv = document.getElementById("pagination");
+    paginationDiv.innerHTML = ""; // Xóa nội dung cũ
+
+    const totalPages = Math.ceil(employees.length / rowsPerPage);
+
+    const prevButton = document.createElement("button");
+    prevButton.textContent = "Previous";
+    prevButton.disabled = currentPage === 1;
+    prevButton.addEventListener("click", () => {
+        currentPage--;
+        renderTable(currentPage);
+    });
+    paginationDiv.appendChild(prevButton);
+
+    for (let i = 1; i <= totalPages; i++) {
+        const pageButton = document.createElement("button");
+        pageButton.textContent = i;
+        pageButton.className = currentPage === i ? "active" : "";
+        pageButton.addEventListener("click", () => {
+            currentPage = i;
+            renderTable(currentPage);
+        });
+        paginationDiv.appendChild(pageButton);
+    }
+
+    const nextButton = document.createElement("button");
+    nextButton.textContent = "Next";
+    nextButton.disabled = currentPage === totalPages;
+    nextButton.addEventListener("click", () => {
+        currentPage++;
+        renderTable(currentPage);
+    });
+    paginationDiv.appendChild(nextButton);
+}
+
+// Hàm thêm nhân viên mới
+function addEmployee() {
+    const nameInput = document.getElementById("employeeName");
+    const positionInput = document.getElementById("employeePosition");
+
+    const name = nameInput.value.trim();
+    const position = positionInput.value.trim();
+
+    if (name && position) {
+        employees.push({ name, position });
+        nameInput.value = "";
+        positionInput.value = "";
+        currentPage = Math.ceil(employees.length / rowsPerPage); // Chuyển đến trang cuối
+        renderTable(currentPage);
+    } else {
+        alert("Vui lòng nhập đầy đủ thông tin!");
     }
 }
 
-function buyProduct() {
-    let productName = prompt("Nhập tên sản phẩm: ");
-    for (let i = 0; i < products.length; i++) {
-        if (productName == products[i][0]) {
-            if (products[i][1] === 0) {
-                alert("Sản phẩm đã hết hàng!");
-                return;
-            }
-            let existInCart = false;
-            let cartIndex = -1;
-            for (let j = 0; j < cart.length; j++) {
-                if (cart[j][0] === products[i][0]) {
-                    existInCart = true;
-                    cartIndex = j;
-                    break;
-                }
-            }
-            if (existInCart) {
-                cart[cartIndex][1]++; 
-                products[i][1]--; 
-                alert("Đã thêm vào giỏ hàng!");
-            } else {
-                cart.push([products[i][0], 1, products[i][2]]);
-                products[i][1]--;
-                alert("Đã thêm vào giỏ hàng!");
-            }
-            break;
-        }
-    }
-    
-    console.log("Sản phẩm trong giỏ hàng: ");
-    for (let i = 0; i < cart.length; i++) {
-        console.log(`${i+1}-${cart[i][0]} - Số lượng: ${cart[i][1]} - Giá: ${cart[i][2]} vnđ`);
-    }
-}
+// Gắn sự kiện cho nút thêm nhân viên
+document.getElementById("addEmployeeBtn").addEventListener("click", addEmployee);
 
-function menu() {
-    let choice;
-    do {
-        console.log("====== MENU ======");
-        console.log("1. Hiển thị sản phẩm");
-        console.log("2. Thêm vào giỏ hàng");
-        console.log("3. Hiển thị hóa đơn");
-        console.log("4. Thoát");
-        console.log("=================");
-        choice = prompt("Nhập lựa chọn của bạn: "); // string
-       
-        switch (choice) {
-            case "1":
-                console.log("Hiển thị sản phẩm trong kho");
-                showProduct();
-                break;
-            case "2":
-                console.log("Thêm vào giỏ hàng");
-                buyProduct();
-                break;
-            case "3":
-                console.log("Hiển thị hóa đơn");
-                let total = 0;
-                for (let i = 0; i < cart.length; i++) {
-                    total += cart[i][1] * cart[i][2];
-                }
-                console.log("Tổng hóa đơn: " + total + " vnđ");
-                break;
-            case "4":
-                console.log("Thoát");
-                break;
-            default:
-                alert("Lựa chọn không hợp lệ!");
-                break;
-        }
-        
-    } while (choice !== "4")
-}
-menu();
+// Hiển thị danh sách ban đầu
+renderTable(currentPage);

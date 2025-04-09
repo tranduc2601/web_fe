@@ -3,9 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Session25_Exercise10</title>
+    <title>BT10_DangDuong</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <h1>Danh sách nhân viên Rikkei</h1>
+    <div>
+        <label>Tên nhân viên</label>
+        <input type="text" id="employeeName">
+        <label>Chức vụ</label>
+        <input type="text" id="employeePosition"><br>
+        <button id="addEmployeeBtn" class="button">thêm nhân viên</button>
+    </div>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>STT</th>
+                <th>Tên</th>
+                <th>Chức vụ</th>
+            </tr>
+        </thead>
+        <tbody id="employeeTable">
+            <!-- Dữ liệu sẽ được thêm động -->
+        </tbody>
+    </table>
+    <div id="pagination">
+        <!-- Phân trang sẽ được thêm động -->
+    </div>
     <script src="main.js"></script>
 </body>
 </html>
