@@ -1,0 +1,30 @@
+body {
+  font-family: Arial, sans-serif;
+  padding: 20px;
+}
+
+.password-wrapper {
+  position: relative;
+  width: 300px;
+  margin-top: 20px;
+}
+
+input[type="password"],
+input[type="text"] {
+  width: 100%;
+  padding: 12px 40px 12px 12px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-sizing: border-box;
+}
+
+.eye {
+  position: absolute;
+  top: 50%;
+  right: 12px;
+  transform: translateY(-50%);
+  cursor: pointer;
+  font-size: 20px;
+  user-select: none;
+}
