@@ -1,12 +1,9 @@
-// Load tasks from localStorage or initialize empty array
 let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
-
-// Render tasks when page loads
+// hien thi
 window.onload = function() {
     renderTasks();
 };
-
-// Add new task
+// them
 function addTask() {
     let input = document.getElementById('taskInput');
     let taskText = input.value.trim();
@@ -21,8 +18,7 @@ function addTask() {
     input.value = '';
     renderTasks();
 }
-
-// Render all tasks
+// hien thi danh sach 
 function renderTasks() {
     let taskList = document.getElementById('taskList');
     taskList.innerHTML = '';
@@ -40,7 +36,7 @@ function renderTasks() {
     });
 }
 
-// Delete task
+// delete
 function deleteTask(index) {
     if (confirm('Bạn có chắc chắn muốn xóa công việc này không?')) {
         tasks.splice(index, 1);
@@ -48,8 +44,7 @@ function deleteTask(index) {
         renderTasks();
     }
 }
-
-// Edit task
+// edit
 function editTask(index) {
     let newTask = prompt('Chỉnh sửa công việc:', tasks[index]);
     if (newTask !== null && newTask.trim() !== '') {
