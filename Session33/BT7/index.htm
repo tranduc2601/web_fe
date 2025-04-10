@@ -1,19 +1,28 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Session32_Exercis7</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Session33_Exercis7</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="gallery">
-    <img src="https://cdn11.dienmaycholon.vn/filewebdmclnew/public/userupload/files/Image%20FP_2024/anh-meo-13.png" alt="Ảnh 1" class="thumb">
-    <img src="https://cdn11.dienmaycholon.vn/filewebdmclnew/public/userupload/files/Image%20FP_2024/anh-meo-15.jpg" alt="Ảnh 2" class="thumb">
-    <img src="https://cdn11.dienmaycholon.vn/filewebdmclnew/public/userupload/files/Image%20FP_2024/anh-meo-21.jpg" alt="Ảnh 3" class="thumb">
-  </div>
-  <!-- Overlay để hiển thị ảnh lớn -->
-  <div class="overlay" id="overlay">
-    <img id="bigImage" src="" alt="Phóng to ảnh">
+  <h1>Cửa hàng Đơn giản</h1>
+  <div class="container">
+    <div class="products-container">
+      <h2>Sản phẩm</h2>
+      <div class="product-grid" id="product-grid">
+        <!-- products <--JS -->
+      </div>
+    </div>
+    <div class="cart-container">
+      <h2>Giỏ hàng</h2>
+      <div id="cart-items">
+        <div class="empty-cart">Giỏ hàng trống</div>
+      </div>
+      <div class="cart-total" id="cart-total">Tổng: 0₫</div>
+      <button class="checkout-btn" id="checkout-btn">Thanh toán</button>
+    </div>
   </div>
   <script src="main.js"></script>
 </body>
