@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Session34_Exercis1</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h2>Task Management</h2>
+    <form id="taskForm">
+      <input type="text" id="content" placeholder="Content">
+      <input type="date" id="dueDate">
+      <select id="status">
+        <option value="">Choose status</option>
+        <option value="Pending">Pending</option>
+        <option value="Completed">Completed</option>
+      </select>
+      <input type="text" id="assignedTo" placeholder="Username">
+      <button type="submit" class="bg-primary">Submit</button>
+    </form>
+
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Content</th>
+          <th>Due date</th>
+          <th>Status</th>
+          <th>Assigned to</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody id="taskList"></tbody>
+    </table>
+  </div>
+
+  <script src="main.js"></script>
+</body>
+</html>
