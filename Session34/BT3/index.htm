@@ -1,22 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Session33_Exercis3</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <label for="categorySelect">Lựa chọn danh mục:</label>
-  <select id="categorySelect">
-    <option value="Tất cả">Tất cả</option>
-    <option value="Đồ ăn">Đồ ăn</option>
-    <option value="Nước">Nước</option>
-    <option value="Dụng cụ">Dụng cụ</option>
-  </select>
-  <button onclick="filterProducts()">Lọc</button>
+  <div class="container">
+    <form class="login-form">
+      <h2>Login</h2>
+      <label>Email:</label>
+      <input type="email" id="email" placeholder="Enter your email address" required />
 
-  <ul id="productList"></ul>
+      <label>Password:</label>
+      <input type="password" id="password" placeholder="Enter your password" required />
+
+      <button type="submit" class="btn-login">Login</button>
+
+      <div class="options">
+        <a href="#">Forgot password?</a>
+        <span>or</span>
+        <a href="#">SignUp</a>
+      </div>
+    </form>
+  </div>
 
   <script src="main.js"></script>
 </body>

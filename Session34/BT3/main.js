@@ -1,27 +1,19 @@
-const dish = [
-  { name: 'Rau sạch', category: 'Đồ ăn' },
-  { name: 'Thịt lợn', category: 'Đồ ăn' },
-  { name: 'Pepsi không calo', category: 'Nước' },
-  { name: 'CocaCola', category: 'Nước' },
-  { name: 'Cờ lê', category: 'Dụng cụ' },
-  { name: 'Tuy vít', category: 'Dụng cụ' }
-];
+document.querySelector('.login-form').addEventListener('submit', function (e) {
+  e.preventDefault();
+  const email = document.getElementById('email').value.trim();
+  const password = document.getElementById('password').value.trim();
 
-function filterProducts() {
-  const selectedCategory = document.getElementById("categorySelect").value;
-  const productList = document.getElementById("productList");
-  productList.innerHTML = '';
+  const users = JSON.parse(localStorage.getItem('users')) || [];
 
-  const filteredDishes = selectedCategory === 'Tất cả'
-    ? dish
-    : dish.filter(item => item.category === selectedCategory);
+  const isValidUser = users.find(
+    (user) => user.email === email && user.password === password
+  );
 
-  filteredDishes.forEach(item => {
-    const li = document.createElement("li");
-    li.innerHTML = `<strong>Tên đồ ăn:</strong> ${item.name} - <strong>Danh mục:</strong> ${item.category}`;
-    productList.appendChild(li);
-  });
-}
-
-// Tự động hiển thị tất cả sản phẩm khi load trang
-window.onload = filterProducts;
+  if (isValidUser) {
+    alert('Login successful!');
+    // Redirect to homepage or dashboard
+    window.location.href = 'home.html'; // or your desired route
+  } else {
+    alert('Invalid email or password!');
+  }
+});
