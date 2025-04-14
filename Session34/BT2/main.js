@@ -1,70 +1,80 @@
-let courses = JSON.parse(localStorage.getItem("courses")) || [];
+let courses = JSON.parse(localStorage.getItem("tasks")) || [
+  {
+    id: 1,
+    content: 'Learn Javascript Session 01',
+    dueDate: '2023-04-17',
+    status: 'Pending',
+    assignedTo: 'Anh Bách'
+  },
+  {
+    id: 2,
+    content: 'Learn Javascript Session 2',
+    dueDate: '2023-04-17',
+    status: 'Pending',
+    assignedTo: 'Lâm'
+  },
+  {
+    id: 3,
+    content: 'Learn CSS Session 1',
+    dueDate: '2023-04-17',
+    status: 'Pending',
+    assignedTo: 'Hiếu Cì ớt ớt'
+  }
+];
 
-function saveCourses() {
-  localStorage.setItem("courses", JSON.stringify(courses));
-}
+let editingId = null;
 
 function renderTasks() {
-  const taskList = document.getElementById("taskList");
+  const taskList = document.getElementById("task-list");
   taskList.innerHTML = "";
   courses.forEach((task, index) => {
-    const row = document.createElement("tr");
-
-    row.innerHTML = `
-      <td>${index + 1}</td>
-      <td>${task.content}</td>
-      <td>${task.dueDate}</td>
-      <td>${task.status}</td>
-      <td>${task.assignedTo}</td>
-      <td>
-        <button onclick="editTask(${task.id})">Sửa</button>
-        <button onclick="deleteTask(${task.id})">Xóa</button>
-      </td>
+    taskList.innerHTML += `
+      <tr>
+        <td>${index + 1}</td>
+        <td>${task.content}</td>
+        <td>${task.dueDate}</td>
+        <td>${task.status}</td>
+        <td>${task.assignedTo}</td>
+        <td>
+          <button class="action-btn edit-btn" onclick="editTask(${task.id})">Sửa</button>
+          <button class="action-btn delete-btn" onclick="deleteTask(${task.id})">Xóa</button>
+        </td>
+      </tr>
     `;
-    taskList.appendChild(row);
   });
+  localStorage.setItem("tasks", JSON.stringify(courses));
 }
 
-function addOrUpdateTask(e) {
+document.getElementById("task-form").addEventListener("submit", function (e) {
   e.preventDefault();
-  const content = document.getElementById("content").value;
+  const content = document.getElementById("content").value.trim();
   const dueDate = document.getElementById("dueDate").value;
   const status = document.getElementById("status").value;
-  const assignedTo = document.getElementById("assignedTo").value;
+  const assignedTo = document.getElementById("assignedTo").value.trim();
 
   if (!content || !dueDate || !status || !assignedTo) {
-    alert("Vui lòng điền đầy đủ thông tin!");
+    alert("Vui lòng nhập đầy đủ thông tin.");
     return;
   }
 
-  const editId = document.getElementById("taskForm").dataset.editId;
-  if (editId) {
-    const index = courses.findIndex(t => t.id == editId);
-    courses[index] = { id: parseInt(editId), content, dueDate, status, assignedTo };
-    delete document.getElementById("taskForm").dataset.editId;
+  if (editingId !== null) {
+    const index = courses.findIndex(t => t.id === editingId);
+    courses[index] = { id: editingId, content, dueDate, status, assignedTo };
+    editingId = null;
   } else {
     const newTask = {
       id: Date.now(),
       content,
       dueDate,
       status,
-      assignedTo
+      assignedTo,
     };
     courses.push(newTask);
   }
 
-  saveCourses();
+  this.reset();
   renderTasks();
-  e.target.reset();
-}
-
-function deleteTask(id) {
-  if (confirm("Bạn có chắc muốn xóa?")) {
-    courses = courses.filter(task => task.id !== id);
-    saveCourses();
-    renderTasks();
-  }
-}
+});
 
 function editTask(id) {
   const task = courses.find(t => t.id === id);
@@ -72,8 +82,14 @@ function editTask(id) {
   document.getElementById("dueDate").value = task.dueDate;
   document.getElementById("status").value = task.status;
   document.getElementById("assignedTo").value = task.assignedTo;
-  document.getElementById("taskForm").dataset.editId = id;
+  editingId = id;
 }
 
-document.getElementById("taskForm").addEventListener("submit", addOrUpdateTask);
-renderTasks();
+function deleteTask(id) {
+  if (confirm("Bạn có chắc chắn muốn xóa công việc này không?")) {
+    courses = courses.filter(task => task.id !== id);
+    renderTasks();
+  }
+}
+
+window.onload = renderTasks;
