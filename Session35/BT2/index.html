@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Bookmark App</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>ADD BOOKMARK</h1>
+
+    <div id="bookmarks" class="bookmarks"></div>
+
+    <div class="modal">
+      <h2>Add Bookmark</h2>
+      <input type="text" id="website-name" placeholder="Website Name" />
+      <input type="text" id="website-url" placeholder="Website URL" />
+      <button onclick="addBookmark()">Save</button>
+    </div>
+  </div>
+
+  <script src="main.js"></script>
+</body>
+</html>
