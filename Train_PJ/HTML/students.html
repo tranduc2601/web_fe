@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Students</title>
+  <link rel="stylesheet" href="../CSS/style.css">
+</head>
+<body>
+  <div class="container">
+    <aside class="sidebar">
+      <div class="profile">
+        <img src="avatar.png" alt="Avatar">
+        <h3>Karthi Madesh</h3>
+        <span>Admin</span>
+      </div>
+      <ul>
+        <li onclick="location.href='dashboard.html'">🏠 Home</li>
+        <li onclick="location.href='course.html'">📑 Course</li>
+        <li class="active">🎓 Students</li>
+        <li onclick="location.href='payment.html'">💳 Payment</li>
+        <li>📊 Report</li>
+        <li>⚙️ Settings</li>
+      </ul>
+      <button class="logout">Logout ⏏</button>
+    </aside>
+    <main>
+      <div class="topbar">
+        <input type="text" placeholder="Search...">
+        <button class="add-btn">ADD NEW STUDENT</button>
+      </div>
+      <div class="table-container">
+        <h2>Students List</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Phone</th>
+              <th>Enroll Number</th>
+              <th>Date of admission</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="studentsTable">
+            <!-- Students rows will be inserted here -->
+          </tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+  <script src="main.js"></script>
+</body>
+</html>

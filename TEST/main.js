@@ -1,27 +1,55 @@
-document.querySelector('.signup-form').addEventListener('submit', function (e) {
-  e.preventDefault();
-  
-  const email = document.getElementById('signup-email').value.trim();
-  const password = document.getElementById('signup-password').value.trim();
-  
-  const secretKey = 'my-secret-key'; // Phải giống với main.js
-  
-  // Mã hóa mật khẩu
-  const encryptedPassword = CryptoJS.AES.encrypt(password, secretKey).toString();
-  
-  // Lấy danh sách người dùng
-  const users = JSON.parse(localStorage.getItem('users')) || [];
-  
-  // Kiểm tra email trùng
-  if (users.find((user) => user.email === email)) {
-    alert('Email already exists!');
-    return;
-  }
-  
-  // Thêm người dùng mới
-  users.push({ email, password: encryptedPassword });
-  localStorage.setItem('users', JSON.stringify(users));
-  
-  alert('Sign up successful! Please log in.');
-  window.location.href = 'index.htm';
+document.addEventListener('DOMContentLoaded', function() {
+  const addNewBtn = document.getElementById('add-new');
+  const formContainer = document.getElementById('form-container');
+  const form = document.getElementById('member-form');
+  const formTitle = document.getElementById('form-title');
+  const cancelBtn = document.getElementById('cancel');
+  const editBtns = document.querySelectorAll('.edit');
+
+  // Show form for adding new member
+  addNewBtn.addEventListener('click', function() {
+      formTitle.textContent = 'Add New Member';
+      form.reset();
+      formContainer.style.display = 'block';
+  });
+
+  // Populate form for editing member
+  editBtns.forEach(function(btn) {
+      btn.addEventListener('click', function() {
+          const row = btn.closest('tr');
+          const id = row.children[0].textContent;
+          const name = row.children[1].textContent;
+          const email = row.children[2].textContent;
+          const role = row.children[3].textContent;
+
+          formTitle.textContent = 'Edit Member';
+          document.getElementById('name').value = name;
+          document.getElementById('email').value = email;
+          document.getElementById('role').value = role;
+          formContainer.style.display = 'block';
+      });
+  });
+
+  // Hide form on cancel
+  cancelBtn.addEventListener('click', function() {
+      formContainer.style.display = 'none';
+  });
+
+  // Handle form submission (placeholder for now)
+  form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      formContainer.style.display = 'none';
+      // Add logic here to update table with new/edited member
+  });
+
+  // Delete member
+  const deleteBtns = document.querySelectorAll('.delete');
+  deleteBtns.forEach(function(btn) {
+      btn.addEventListener('click', function() {
+          if (confirm('Are you sure you want to delete this member?')) {
+              const row = btn.closest('tr');
+              row.remove();
+          }
+      });
+  });
 });

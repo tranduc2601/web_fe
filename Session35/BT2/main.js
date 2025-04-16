@@ -1,26 +1,16 @@
 let bookmarks = JSON.parse(localStorage.getItem("bookmarks")) || [];
-
-function saveToLocalStorage() {
-  localStorage.setItem("bookmarks", JSON.stringify(bookmarks));
-}
-
-function renderBookmarks() {
-  const container = document.getElementById("bookmarks");
-  container.innerHTML = "";
-
-  bookmarks.forEach((bookmark, index) => {
-    const div = document.createElement("div");
-    div.className = "bookmark";
+function saveToLocalStorage() {localStorage.setItem("bookmarks", JSON.stringify(bookmarks));}
+function renderBookmarks() {const container = document.getElementById("bookmarks");container.innerHTML = "";
+  bookmarks.forEach((bookmark, index) => {const div = document.createElement("div");div.className = "bookmark";
     div.innerHTML = `
       <a href="${bookmark.url}" target="_blank">
-        <span>🔗 ${bookmark.name}</span>
+       <i class="fa-solid fa-link"></i>${bookmark.name}
       </a>
-      <button onclick="deleteBookmark(${index})">✖</button>
+      <button onclick="deleteBookmark(${index})"><i class="fa-solid fa-xmark"></i></button>
     `;
     container.appendChild(div);
   });
 }
-
 function addBookmark() {
   const nameInput = document.getElementById("website-name");
   const urlInput = document.getElementById("website-url");

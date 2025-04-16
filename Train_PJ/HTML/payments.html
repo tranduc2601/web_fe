@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Payment</title>
+  <link rel="stylesheet" href="../CSS/style.css">
+</head>
+<body>
+  <div class="container">
+    <aside class="sidebar">
+      <div class="profile">
+        <img src="../IMG/avt.png" alt="Avatar">
+        <h3>Karthi Madesh</h3>
+        <span>Admin</span>
+      </div>
+      <ul>
+        <li onclick="location.href='dashboard.html'">🏠 Home</li>
+        <li onclick="location.href='course.html'">📑 Course</li>
+        <li onclick="location.href='students.html'">🎓 Students</li>
+        <li class="active">💳 Payment</li>
+        <li>📊 Report</li>
+        <li>⚙️ Settings</li>
+      </ul>
+      <button class="logout">Logout ⏏</button>
+    </aside>
+    <main>
+      <div class="topbar">
+        <input type="text" placeholder="Search...">
+      </div>
+      <div class="table-container">
+        <h2>Payment Details</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Payment Schedule</th>
+              <th>Bill Number</th>
+              <th>Amount Paid</th>
+              <th>Balance</th>
+              <th>Date</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="paymentTable">
+            <!-- Payment rows will be inserted here -->
+          </tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+  <script src="main.js"></script>
+</body>
+</html>

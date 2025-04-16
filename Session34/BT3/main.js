@@ -11,8 +11,7 @@ document.querySelector('.login-form').addEventListener('submit', function (e) {
 
   if (isValidUser) {
     alert('Login successful!');
-    // Redirect to homepage or dashboard
-    window.location.href = 'home.html'; // or your desired route
+    window.location.href = 'home.html';
   } else {
     alert('Invalid email or password!');
   }

@@ -1,0 +1,224 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+  }
+  
+  body {
+    background: #f0f0f0;
+  }
+  
+  .signin-body {
+    background: linear-gradient(to right, #f9b421, #f39c12);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .signin-container {
+    height: 550px;
+    background: #FFFFFF;
+    padding: 30px;
+    width: 475px;
+    border-radius: 20px;
+    text-align: center;
+  }
+  
+  .signin-container h1 {
+    line-height: 100%;
+    letter-spacing: 0%;
+    font-size: 32px;
+    font-weight: 700;
+  }
+  .signin-container h2 {
+    text-transform: uppercase;
+    letter-spacing: 0%;
+    line-height: 100%;
+    font-size: 22px;
+    font-weight: 600;
+    margin-top: 43px;
+    color: #000000;
+  }
+  .signin-container p {
+    letter-spacing: 0%;
+    line-height: 100%;
+    font-size: 14px;
+    font-weight: 400;
+    color: #6C6C6C;
+    margin-top: 9px;
+  }
+  .signin-container p:nth-of-type(2) {
+    font-size: 14px;
+    font-weight: 400;
+    text-align: start;
+    margin-top: 50px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    color: #6C6C6C;
+  }
+ .signin-container p:nth-of-type(3) {
+    font-size: 14px;
+    font-weight: 400;
+    text-align: start;
+    margin-top: 20px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    color: #6C6C6C;
+    }  
+  
+  .signin-container .highlight-bar {
+    display: inline-block;
+    width: 4px;
+    height: 20px;
+    background: #f4b400;
+    margin-right: 6px;
+    vertical-align: middle;
+  }
+  
+  .signin-container input {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin: 12px 0;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+  }
+  
+  .signin-container button {
+    background: #f4b400;
+    color: white;
+    padding: 10px;
+    width: 100%;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  .signin-container .reset-link {
+    margin-top: 10px;
+    font-size: 12px;
+  }
+  
+  .container {
+    display: flex;
+  }
+  
+  .sidebar {
+    width: 39px;
+    background: #f8eacc;
+    padding: 20px;
+    min-height: 100vh;
+  }
+  
+  .profile {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .profile img {
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+  }
+  
+  .sidebar ul {
+    list-style: none;
+    margin-top: 20px;
+  }
+  
+  .sidebar ul li {
+    padding: 10px;
+    cursor: pointer;
+  }
+  
+  .sidebar ul li.active,
+  .sidebar ul li:hover {
+    background: #f4b400;
+    color: #fff;
+    border-radius: 5px;
+  }
+  
+  .logout {
+    margin-top: 20px;
+    width: 100%;
+    padding: 10px;
+    background: none;
+    border: 1px solid #000;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  main {
+    flex: 1;
+    padding: 20px;
+  }
+  
+  .topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .topbar input {
+    padding: 10px;
+    width: 200px;
+  }
+  
+  .cards {
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+  }
+  
+  .card {
+    padding: 20px;
+    border-radius: 12px;
+    flex: 1;
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .students { background: #e8f4ff; }
+  .course { background: #ffeef8; }
+  .payments { background: #fffce4; }
+  .users { background: linear-gradient(to right, #f9b421, #f39c12); color: white; }
+  
+  .table-container {
+    margin-top: 20px;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  
+  thead {
+    background: #f4f4f4;
+  }
+  
+  th, td {
+    padding: 12px;
+    text-align: left;
+  }
+  
+  tr:not(:last-child) {
+    border-bottom: 1px solid #eee;
+  }
+  
+  .add-btn {
+    background: #f4b400;
+    color: white;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  

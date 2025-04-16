@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="../CSS/style.css">
+  <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.7.2/css/all.css">
+</head>
+<body>
+  <div class="container">
+    <aside class="sidebar">
+      <div class="profile">
+        <img src="../IMG/avt.png" alt="Avatar">
+        <h3>Karthi Madesh</h3>
+        <span>Admin</span>
+      </div>
+      <ul>
+        <li class="active"><i class="fa-thin fa-house"></i> Home</li>
+        <li onclick="location.href='course.html'"><i class="fa-light fa-bookmark"></i> Course</li>
+        <li onclick="location.href='students.html'"><i class="fa-light fa-graduation-cap"></i> Students</li>
+        <li onclick="location.href='payment.html'"><i class="fa-light fa-square-dollar"></i> Payment</li>
+        <li><i class="fa-regular fa-file-chart-column"></i> Report</li>
+        <li><i class="fa-thin fa-square-sliders-vertical"></i> Settings</li>
+      </ul>
+      <button class="logout">Logout <i class="fa-light fa-right-from-bracket"></i></button>
+    </aside>
+    <main>
+      <div class="topbar">
+        <input type="text" placeholder="Search...">
+        <span class="bell"><i class="fa-light fa-bell"></i></span>
+      </div>
+      <div class="cards">
+        <div class="card students"><i class="fa-light fa-graduation-cap"></i> Students <strong>243</strong></div>
+        <div class="card course"><i class="fa-light fa-bookmark"></i> Course <strong>13</strong></div>
+        <div class="card payments"><i class="fa-light fa-square-dollar"></i> Payments <strong>INR 556,000</strong></div>
+        <div class="card users"><i class="fa-light fa-user"></i> Users <strong>3</strong></div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>
