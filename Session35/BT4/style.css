@@ -1,74 +1,52 @@
 body {
-  background: #f7f7f7;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
   font-family: Arial, sans-serif;
+  margin: 20px;
+  text-align: center;
+}
+button{
+  margin-top: 10px;
+}
+table {
+  width: 50%;
+  border-collapse: collapse;
+  margin: auto;   
 }
 
-.todo-container {
-  background: white;
-  padding: 30px;
-  border-radius: 12px;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-  width: 350px;
+th, td {
+  text-align: left;
+  padding: 8px;
   text-align: center;
 }
 
-h2 {
-  margin-bottom: 20px;
+th {
+  background-color: #f2f2f2;
 }
 
-.input-group {
-  display: block;
-  margin-bottom: 20px;
+tr:nth-child(even) {
+  background-color: #f9f9f9;
 }
 
-#todo-input {
-  width: 100%;
-  padding: 10px;
-  font-size: 16px;
-  margin-bottom: 10px;
+#pagination {
+  margin-top: 20px;
+  text-align: center;
 }
 
-#add-btn {
-  border-radius: 5px;
-  width: 80px;
-  padding: 10px 16px;
-  margin-right: 400px;
-  background-color: #28a745;
-  color: white;
-  border: none;
+#pagination button {
+  margin: 0 5px;
+  padding: 7px 15px;
   cursor: pointer;
-}
-
-#add-btn:hover {
-  background-color: #218838;
-}
-
-#todo-list {
-  list-style: none;
-  padding: 0;
-}
-
-#todo-list li {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 8px 10px;
-  border-bottom: 1px solid #ddd;
-}
-
-.delete-btn {
+  background-color: white;
   border-radius: 5px;
-  background-color: #dc3545;
-  border: none;
-  color: white;
-  padding: 5px 10px;
-  cursor: pointer;
+  border: 0.5px solid #007BFF;
+  color: #007BFF;
 }
 
-.delete-btn:hover {
-  background-color: #c82333;
+#pagination button.active {
+  background-color: #007BFF;
+  color: white;
+}
+
+#pagination button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
 }
