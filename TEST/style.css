@@ -1,101 +1,152 @@
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-}
-
 .container {
-  max-width: 1200px;
-  margin: 0 auto;
+  width: 80%;
+  margin: auto;
   padding: 20px;
 }
 
-header {
+.category {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 20px;
 }
 
-h1 {
-  margin: 0;
-}
-
-button {
-  padding: 10px 15px;
-  background-color: #007bff;
+.category button {
+  background-color: #007bff; /* Đổi màu nút thành xanh đậm */
   color: white;
   border: none;
-  cursor: pointer;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 14px;
 }
 
-button:hover {
-  background-color: #0056b3;
-}
-
-.search {
+.searchCategory {
   margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+  
 }
 
-.search input {
-  width: 100%;
-  padding: 10px;
-  font-size: 16px;
+.searchCategory input {
+  width: 300px;
+  padding: 8px;
+  border: none;
+  background: transparent;
 }
 
+.searchCategory select {
+  padding: 8px;
+  border: none;
+}
+
+.searchCategory i {
+  position: absolute;
+  top: 127px;
+  right: 110px;
+  transform: translateY(-50%);
+  pointer-events: none; 
+  color: #495057; /* Đổi màu icon tìm kiếm thành xám đậm */
+  font-size: 14px; 
+}
 table {
   width: 100%;
   border-collapse: collapse;
+  margin-top: 0;
+  font-size: 14px;
 }
 
-th, td {
-  padding: 10px;
+table th, table td {
+  border: 1px solid #E1E8ED;
+  padding: 8px;
   text-align: left;
-  border-bottom: 1px solid #ddd;
+  vertical-align: middle;
 }
 
-th {
-  background-color: #f2f2f2;
+table th {
+  font-weight: 600;
+  background-color: #f1f3f5;
+  color: #495057;
+  text-transform: uppercase;
+  font-size: 12px;
 }
 
-tr:hover {
-  background-color: #f5f5f5;
+table td {
+  color: #343a40;
 }
 
-#form-container {
-  margin-top: 20px;
-  padding: 20px;
-  background-color: #f9f9f9;
-  border: 1px solid #ddd;
+.modal-content {
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-form label {
-  display: block;
-  margin-top: 10px;
+.form-check-input:checked {
+  background-color: #1DA1F2;
+  border-color: #1DA1F2;
 }
 
-form input, form select {
-  width: 100%;
-  padding: 10px;
+.form-check-label {
+  cursor: pointer;
+}
+
+.text-danger {
+  font-size: 0.875rem;
   margin-top: 5px;
+  font-weight: 500;
 }
 
-form button {
-  margin-top: 20px;
+.btn-secondary {
+  background-color: #6c757d;
+  border-color: #6c757d;
 }
 
-.edit {
-  background-color: #007bff;
+.status-active {
+  color: #0A7D4E; 
+  margin-right: 5px;
+  background-color: #ECFDF3;
+  opacity: 80%;
+  border-radius: 15px;
+  padding: 5px;
+  font-size: 14px;
+  font-weight: bold;
 }
 
-.edit:hover {
-  background-color: #0056b3;
+.status-inactive {
+  color: #C13636; 
+  background-color: #f8d7da; 
+  border-radius: 15px;
+  padding: 5px;
+  font-size: 14px;
+  font-weight: bold;
+  display: inline-block;
+  opacity: 0.8;
 }
 
-.delete {
+.btn-danger, .btn-warning {
+  padding: 4px 8px;
+  font-size: 12px;
+}
+
+.btn-danger {
   background-color: #dc3545;
+  border-color: #dc3545;
 }
 
-.delete:hover {
-  background-color: #c82333;
+.btn-warning {
+  background-color: #ffc107;
+  border-color: #ffc107;
+}
+
+.btn-danger i, .btn-warning i {
+  margin-right: 0;
+}
+
+.form-check-input:checked::before {
+  display: block;
+  width: 10px;
+  height: 10px;
+  background-color: #0D6EFD;
+  border-radius: 50%;
+  margin: 3px auto;
 }

@@ -1,106 +1,101 @@
-let employees = [
-  { name: "Nguyễn Văn A", position: "Developer" },
-  { name: "Trần Thị B", position: "Designer" },
-  { name: "Phạm Văn C", position: "Project Manager" },
-  { name: "Lê Thị D", position: "QA Engineer" },
-  { name: "Vũ Văn E", position: "DevOps" },
-  { name: "Hoàng Thị F", position: "HR Manager" },
-];
+let categories = JSON.parse(localStorage.getItem("categories")) || [];
+let editIndex = null;
 
-const rowsPerPage = 3;
-let currentPage = 1;
+function renderCategories() {
+  const tbody = document.getElementById("categoryTable");
+  const search = document.getElementById("searchInput").value.toLowerCase();
+  const filter = document.getElementById("filterStatus").value;
+  tbody.innerHTML = "";
 
-
-function loadEmployeesFromLocalStorage() {
-  const storedEmployees = JSON.parse(localStorage.getItem("employees")) || [];
-  employees = storedEmployees.length > 0 ? storedEmployees : employees;
-}
-
-function saveEmployeesToLocalStorage() {
-  localStorage.setItem("employees", JSON.stringify(employees));
-}
-
-function renderTable(page) {
-  const tableBody = document.getElementById("employeeTable");
-  tableBody.innerHTML = "";
-
-  const start = (page - 1) * rowsPerPage;
-  const end = start + rowsPerPage;
-  const paginatedEmployees = employees.slice(start, end);
-
-  paginatedEmployees.forEach((employee, index) => {
-      const row = document.createElement("tr");
-      row.innerHTML = `
-          <td>${start + index + 1}</td>
-          <td>${employee.name}</td>
-          <td>${employee.position}</td>
-      `;
-      tableBody.appendChild(row);
+  const filtered = categories.filter(cat => {
+    const matchSearch = cat.name.toLowerCase().includes(search);
+    const matchStatus = filter === "all" || cat.status === filter;
+    return matchSearch && matchStatus;
   });
 
-  renderPagination();
+  filtered.forEach((cat, index) => {
+    const row = document.createElement("tr");
+    row.innerHTML = `
+      <td>DM${(index + 1).toString().padStart(3, "0")}</td>
+      <td>${cat.name}</td>
+      <td><span class="status ${cat.status}">${cat.status === "active" ? "Đang hoạt động" : "Ngừng hoạt động"}</span></td>
+      <td class="action-icons">
+        <i class="fa-light fa-pen" onclick="editCategory(${index})"></i>
+        <i class="fa-light fa-trash-can" onclick="deleteCategory(${index})"></i>
+      </td>
+    `;
+    tbody.appendChild(row);
+  });
 }
 
+function openModal(editing = false) {
+  document.getElementById("modal").classList.remove("hidden");
+  document.getElementById("modalTitle").textContent = editing ? "Chỉnh sửa danh mục" : "Thêm danh mục";
+}
 
-function renderPagination() {
-  const paginationDiv = document.getElementById("pagination");
-  paginationDiv.innerHTML = ""; 
+function closeModal() {
+  document.getElementById("modal").classList.add("hidden");
+}
 
-  const totalPages = Math.ceil(employees.length / rowsPerPage);
+function resetForm() {
+  document.getElementById("categoryForm").reset();
+  document.getElementById("nameError").textContent = "";
+  document.getElementById("code").value = `DM${(categories.length + 1).toString().padStart(3, "0")}`;
+}
 
-  const prevButton = document.createElement("button");
-  prevButton.textContent = "Previous";
-  prevButton.disabled = currentPage === 1;
-  prevButton.addEventListener("click", () => {
-      currentPage--;
-      renderTable(currentPage);
-  });
-  paginationDiv.appendChild(prevButton);
+function deleteCategory(index) {
+  if (confirm("Bạn có chắc chắn muốn xoá không?")) {
+    categories.splice(index, 1);
+    localStorage.setItem("categories", JSON.stringify(categories));
+    renderCategories();
+  }
+}
 
-  for (let i = 1; i <= totalPages; i++) {
-      const pageButton = document.createElement("button");
-      pageButton.textContent = i;
-      pageButton.className = currentPage === i ? "active" : "";
-      pageButton.addEventListener("click", () => {
-          currentPage = i;
-          renderTable(currentPage);
-      });
-      paginationDiv.appendChild(pageButton);
+function editCategory(index) {
+  editIndex = index;
+  const cat = categories[index];
+  openModal(true);
+  document.getElementById("code").value = `DM${(index + 1).toString().padStart(3, "0")}`;
+  document.getElementById("name").value = cat.name;
+  document.querySelector(`input[name="status"][value="${cat.status}"]`).checked = true;
+}
+
+document.getElementById("btnAdd").onclick = () => {
+  editIndex = null;
+  resetForm();
+  openModal(false);
+};
+
+document.getElementById("cancelBtn").onclick =
+document.getElementById("cancelBtn2").onclick = closeModal;
+
+document.getElementById("categoryForm").onsubmit = (e) => {
+  e.preventDefault();
+  const name = document.getElementById("name").value.trim();
+  const status = document.querySelector('input[name="status"]:checked').value;
+  const errorEl = document.getElementById("nameError");
+
+  if (!name) {
+    errorEl.textContent = "Tên danh mục không được để trống.";
+    return;
   }
 
-  const nextButton = document.createElement("button");
-  nextButton.textContent = "Next";
-  nextButton.disabled = currentPage === totalPages;
-  nextButton.addEventListener("click", () => {
-      currentPage++;
-      renderTable(currentPage);
-  });
-  paginationDiv.appendChild(nextButton);
-}
+  errorEl.textContent = "";
 
-
-function addEmployee() {
-  const nameInput = document.getElementById("employeeName");
-  const positionInput = document.getElementById("employeePosition");
-
-  const name = nameInput.value.trim();
-  const position = positionInput.value.trim();
-
-  if (name && position) {
-      employees.push({ name, position });
-      saveEmployeesToLocalStorage();
-      nameInput.value = "";
-      positionInput.value = "";
-      currentPage = Math.ceil(employees.length / rowsPerPage);
-      renderTable(currentPage);
+  if (editIndex === null) {
+    categories.push({ name, status });
   } else {
-      alert("Vui lòng nhập đầy đủ thông tin!");
+    categories[editIndex] = { name, status };
   }
-}
 
+  localStorage.setItem("categories", JSON.stringify(categories));
+  closeModal();
+  renderCategories();
+};
 
-document.getElementById("addEmployeeBtn").addEventListener("click", addEmployee);
+document.getElementById("searchInput").oninput = renderCategories;
+document.getElementById("filterStatus").onchange = renderCategories;
 
-
-loadEmployeesFromLocalStorage();
-renderTable(currentPage);
+window.onload = () => {
+  renderCategories();
+};
