@@ -1,0 +1,106 @@
+/* Reset cơ bản */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  background-color: #f0f2f5;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* Align to top */
+  min-height: 100vh;
+  padding: 20px;
+  color: #333;
+}
+
+.container {
+  background-color: #ffffff;
+  padding: 25px 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 500px; /* Adjust max-width as needed */
+  text-align: center;
+}
+
+h1 {
+  margin-bottom: 25px;
+  color: #1c1e21;
+  font-size: 1.8em;
+}
+
+.dishes-list {
+  display: flex;
+  flex-direction: column; /* Stack dishes vertically */
+  gap: 20px; /* Space between dish cards */
+}
+
+.dish-card {
+  display: flex; /* Image and info side-by-side */
+  align-items: center; /* Vertically align items */
+  background-color: #f9f9f9; /* Slightly off-white background for card */
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 15px;
+  text-align: left; /* Align text inside card to the left */
+  transition: box-shadow 0.2s ease;
+}
+
+.dish-card:hover {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.dish-image {
+  width: 100px; /* Fixed image width */
+  height: 80px;  /* Fixed image height */
+  object-fit: cover; /* Crop image nicely */
+  border-radius: 6px;
+  margin-right: 15px; /* Space between image and text */
+  flex-shrink: 0; /* Prevent image from shrinking */
+}
+
+.dish-info {
+  flex-grow: 1; /* Allow info section to take remaining space */
+}
+
+.dish-name {
+  font-size: 1.2em;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #050505;
+}
+
+.dish-likes {
+  font-size: 0.95em;
+  color: #65676b; /* Grayish color for like count */
+  margin-bottom: 10px;
+  display: flex; /* Align icon and text */
+  align-items: center;
+  gap: 5px; /* Space between heart and text */
+}
+
+.dish-likes .fa-heart { /* Style for Font Awesome heart */
+  color: #e74c3c; /* Red color for heart */
+}
+.like-button {
+  padding: 8px 15px;
+  background-color: #2ecc71; /* Green color */
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9em;
+  font-weight: bold;
+  transition: background-color 0.2s ease;
+}
+
+.like-button:hover {
+  background-color: #27ae60; /* Darker green on hover */
+}
+
+.like-button:active {
+  background-color: #229954; /* Even darker when clicked */
+}

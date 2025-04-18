@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng nhập / Đăng ký</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <div class="container">
+
+        <div id="register-page" class="page hidden">
+            <div class="form-container">
+                <h2>Đăng ký</h2>
+                <form id="register-form">
+                    <div class="input-group">
+                        <label for="register-username">Tên đăng nhập</label>
+                        <input type="text" id="register-username" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="register-password">Mật khẩu</label>
+                        <input type="password" id="register-password" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Đăng ký</button>
+                    <button type="button" id="goto-login" class="btn btn-secondary">Quay lại đăng nhập</button>
+                    <p id="register-success" class="success-message hidden">Đăng ký thành công!</p>
+                </form>
+            </div>
+        </div>
+
+        <div id="login-page" class="page hidden">
+             <div class="form-container">
+                <h2>Đăng nhập</h2>
+                <form id="login-form">
+                    <div class="input-group">
+                        <label for="login-username">Tên đăng nhập</label>
+                        <input type="text" id="login-username" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="login-password">Mật khẩu</label>
+                        <input type="password" id="login-password" required>
+                    </div>
+                    <div class="input-group remember-me">
+                        <input type="checkbox" id="remember-me">
+                        <label for="remember-me">Ghi nhớ tôi</label>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Đăng nhập</button>
+                     <button type="button" id="goto-register" class="btn btn-secondary">Chưa có tài khoản? Đăng ký</button>
+                    <p id="login-error" class="error-message hidden">Tên đăng nhập hoặc mật khẩu không đúng.</p>
+                </form>
+            </div>
+        </div>
+
+        <div id="home-page" class="page hidden">
+            <div class="welcome-container">
+                <h2>Xin chào, <span id="home-username"></span>! 👋</h2>
+                <p>Chào mừng bạn đến với hệ thống!</p>
+                <button id="logout-button" class="btn btn-primary">Đăng xuất</button>
+            </div>
+        </div>
+
+    </div> <script src="main.js"></script>
+</body>
+</html>

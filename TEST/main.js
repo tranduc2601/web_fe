@@ -1,215 +1,199 @@
-
 document.addEventListener('DOMContentLoaded', () => {
-    let danhMucList = taiDanhMucTuBoNho();
+    // === DOM Elements ===
+    const userTableBody = document.getElementById('userTableBody');
+    const addUserBtn = document.getElementById('addUserBtn');
+    const userModal = document.getElementById('userModal');
+    const modalOverlay = document.getElementById('modalOverlay');
+    const closeModalBtn = document.getElementById('closeModalBtn');
+    const cancelBtn = document.getElementById('cancelBtn');
+    const userForm = document.getElementById('userForm');
+    const modalTitle = document.getElementById('modalTitle');
+    const userIdInput = document.getElementById('userId');
+    const nameInput = document.getElementById('name');
+    const emailInput = document.getElementById('email');
+    const saveBtn = document.getElementById('saveBtn'); // Nút Lưu trong modal
 
-    hienThiDanhMuc(danhMucList);
+    // === Data (Simulated Database) ===
+    let users = [
+        { id: 1, name: "Nguyễn Văn An", email: "an.nguyen@example.com" },
+        { id: 2, name: "Trần Thị Bình", email: "binh.tran@example.com" },
+        { id: 3, name: "Lê Văn Cường", email: "cuong.le@example.com" }
+    ];
+    let nextUserId = 4; // Để tạo ID cho người dùng mới
 
-    const modalThemDanhMucEl = document.getElementById("addCategoryModal");
-    if (!modalThemDanhMucEl) {
-        console.error("Không tìm thấy phần tử modal với ID 'addCategoryModal'");
-        return;
-    }
-    const modalThemDanhMuc = new bootstrap.Modal(modalThemDanhMucEl);
+    // === Functions ===
 
-    const nutThemMoi = document.getElementById("addCategoryBtn");
-    if (nutThemMoi) {
-        nutThemMoi.addEventListener('click', () => {
-            document.getElementById("categoryId").value = '';
-            document.getElementById("categoryName").value = '';
-            document.getElementById("statusActive").checked = true;
-            document.getElementById("categoryIdError").style.display = 'none';
-            document.getElementById("categoryNameError").style.display = 'none';
-            document.getElementById("addCategoryForm").onsubmit = xuLyThemDanhMuc;
-            modalThemDanhMuc.show();
-        });
-    }
-
-    const nutHuy = document.getElementById("cancelBtn");
-    if (nutHuy) {
-        nutHuy.addEventListener('click', () => {
-            modalThemDanhMuc.hide();
-            document.getElementById("addCategoryForm").reset();
-            document.getElementById("categoryIdError").style.display = 'none';
-            document.getElementById("categoryNameError").style.display = 'none';
-        });
-    }
-
-    function xuLyThemDanhMuc(suKien) {
-        suKien.preventDefault();
-
-        const oMa = document.getElementById("categoryId");
-        const oTen = document.getElementById("categoryName");
-        const trangThai = document.querySelector('input[name="categoryStatus"]:checked').value;
-
-        const ma = oMa.value.trim();
-        const ten = oTen.value.trim();
-
-        let hopLe = true;
-
-        if (!ma) {
-            document.getElementById("categoryIdError").style.display = 'block';
-            oMa.style.border = "1px solid red";
-            hopLe = false;
-        } else {
-            document.getElementById("categoryIdError").style.display = 'none';
-            oMa.style.border = "";
+    /**
+     * Render (vẽ) lại toàn bộ bảng người dùng từ mảng users
+     */
+    function renderTable() {
+        userTableBody.innerHTML = ''; // Xóa nội dung cũ
+        if (users.length === 0) {
+             userTableBody.innerHTML = '<tr><td colspan="4" style="text-align:center;">Không có dữ liệu người dùng.</td></tr>';
+             return;
         }
-
-        if (!ten) {
-            document.getElementById("categoryNameError").style.display = 'block';
-            oTen.style.border = "1px solid red";
-            hopLe = false;
-        } else {
-            document.getElementById("categoryNameError").style.display = 'none';
-            oTen.style.border = "";
-        }
-
-        if (!hopLe) return;
-
-        if (!/^[a-zA-Z0-9]+$/.test(ma)) {
-            alert("Mã danh mục chỉ được chứa chữ cái và số.");
-            return;
-        }
-        if (ten.length > 50) {
-            alert("Tên danh mục không được dài quá 50 ký tự.");
-            return;
-        }
-        if (danhMucList.some(dm => dm.id === ma)) {
-            alert("Mã danh mục đã tồn tại.");
-            return;
-        }
-
-        themDanhMuc(ma, ten, trangThai);
-        modalThemDanhMuc.hide();
-        suKien.target.reset();
-    }
-
-    document.getElementById("categorySelect").addEventListener("change", (event) => {
-        const trangThai = event.target.value;
-        const loc = trangThai === "all" ? danhMucList : locDanhMucTheoTrangThai(trangThai);
-        hienThiDanhMuc(loc);
-    });
-
-    document.getElementById("searchCategoryByName").addEventListener("input", (event) => {
-        const tuKhoa = event.target.value.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
-        const ketQua = timKiemDanhMucTheoTen(tuKhoa);
-        hienThiDanhMuc(ketQua);
-    });
-
-    function luuDanhMucVaoBoNho() {
-        try {
-            localStorage.setItem("categories", JSON.stringify(danhMucList));
-        } catch (e) {
-            console.error("Lỗi khi lưu vào localStorage:", e);
-        }
-    }
-
-    function taiDanhMucTuBoNho() {
-        try {
-            const data = localStorage.getItem("categories");
-            return data ? JSON.parse(data) : [];
-        } catch (e) {
-            console.error("Lỗi khi tải từ localStorage:", e);
-            return [];
-        }
-    }
-
-    function locDanhMucTheoTrangThai(trangThai) {
-        return danhMucList.filter(dm => dm.status === trangThai);
-    }
-
-    function timKiemDanhMucTheoTen(tuKhoa) {
-        return danhMucList.filter(dm =>
-            dm.name.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().includes(tuKhoa)
-        );
-    }
-
-    function hienThiDanhMuc(danhSach) {
-        const tbody = document.getElementById("categoryTableBody");
-        tbody.innerHTML = "";
-        danhSach.forEach(dm => {
-            const trangThaiClass = dm.status === "active" ? "status-active" : "status-inactive";
-            const row = `
-                <tr>
-                    <td>${dm.id}</td>
-                    <td>${dm.name}</td>
-                    <td><span class="${trangThaiClass}">* ${dm.status === "active" ? "Đang hoạt động" : "Ngừng hoạt động"}</span> </td>
-                    <td>
-                        <button class="btn btn-danger btn-sm delete-btn" data-id="${dm.id}"><i class="fas fa-trash"></i></button>
-                        <button class="btn btn-warning btn-sm ms-2 edit-btn" data-id="${dm.id}"><i class="fas fa-edit"></i></button>
-                    </td>
-                </tr>
+        users.forEach(user => {
+            const row = userTableBody.insertRow();
+            row.setAttribute('data-id', user.id); // Thêm data-id vào thẻ <tr> để dễ truy vấn
+            row.innerHTML = `
+                <td>${user.id}</td>
+                <td>${user.name}</td>
+                <td>${user.email}</td>
+                <td>
+                    <button class="btn btn-edit" data-id="${user.id}">Sửa</button>
+                    <button class="btn btn-delete" data-id="${user.id}">Xóa</button>
+                </td>
             `;
-            tbody.innerHTML += row;
-        });
-
-        document.querySelectorAll(".delete-btn").forEach(nut => {
-            nut.addEventListener("click", (e) => {
-                const ma = e.target.getAttribute("data-id");
-                if (confirm(`Bạn có chắc muốn xóa danh mục ${ma}?`)) {
-                    xoaDanhMuc(ma);
-                }
-            });
-        });
-
-        document.querySelectorAll(".edit-btn").forEach(nut => {
-            nut.addEventListener("click", (e) => {
-                const ma = e.target.getAttribute("data-id");
-                const danhMuc = danhMucList.find(dm => dm.id === ma);
-                if (danhMuc) {
-                    document.getElementById("categoryId").value = danhMuc.id;
-                    document.getElementById("categoryName").value = danhMuc.name;
-                    document.getElementById("statusActive").checked = danhMuc.status === "active";
-                    document.getElementById("statusInactive").checked = danhMuc.status === "inactive";
-                    document.getElementById("categoryIdError").style.display = 'none';
-                    document.getElementById("categoryNameError").style.display = 'none';
-                    modalThemDanhMuc.show();
-
-                    document.getElementById("addCategoryForm").onsubmit = (event) => {
-                        event.preventDefault();
-                        const tenMoi = document.getElementById("categoryName").value.trim();
-                        const trangThaiMoi = document.querySelector('input[name="categoryStatus"]:checked').value;
-
-                        if (!tenMoi) {
-                            document.getElementById("categoryNameError").style.display = 'block';
-                            return;
-                        }
-                        if (tenMoi.length > 50) {
-                            alert("Tên danh mục không được dài quá 50 ký tự.");
-                            return;
-                        }
-
-                        if (confirm(`Cập nhật danh mục ${ma}?`)) {
-                            capNhatDanhMuc(ma, tenMoi, trangThaiMoi);
-                            modalThemDanhMuc.hide();
-                            event.target.reset();
-                            document.getElementById("addCategoryForm").onsubmit = null;
-                        }
-                    };
-                }
-            });
         });
     }
 
-    function xoaDanhMuc(ma) {
-        danhMucList = danhMucList.filter(dm => dm.id !== ma);
-        luuDanhMucVaoBoNho();
-        hienThiDanhMuc(danhMucList);
+    /**
+     * Mở Modal
+     * @param {'add' | 'edit'} mode - Chế độ mở modal ('add' hoặc 'edit')
+     * @param {object | null} userData - Dữ liệu người dùng (chỉ cần cho mode 'edit')
+     */
+    function showModal(mode = 'add', userData = null) {
+        userForm.reset(); // Xóa dữ liệu form cũ
+        userIdInput.value = ''; // Reset trường ID ẩn
+
+        if (mode === 'add') {
+            modalTitle.textContent = 'Thêm người dùng mới';
+            saveBtn.textContent = 'Thêm'; // Đặt lại text nút Lưu/Thêm
+        } else if (mode === 'edit' && userData) {
+            modalTitle.textContent = 'Chỉnh sửa người dùng';
+            userIdInput.value = userData.id;
+            nameInput.value = userData.name;
+            emailInput.value = userData.email;
+            saveBtn.textContent = 'Cập nhật'; // Đặt lại text nút Lưu/Thêm
+            // Điền dữ liệu vào các trường khác nếu có
+        }
+
+        modalOverlay.classList.add('active');
+        userModal.classList.add('active');
     }
 
-    function capNhatDanhMuc(ma, ten, trangThai) {
-        const index = danhMucList.findIndex(dm => dm.id === ma);
-        if (index !== -1) {
-            danhMucList[index] = { id: ma, name: ten, status: trangThai };
-            luuDanhMucVaoBoNho();
-            hienThiDanhMuc(danhMucList);
+    /**
+     * Đóng Modal
+     */
+    function hideModal() {
+        modalOverlay.classList.remove('active');
+        userModal.classList.remove('active');
+        userForm.reset(); // Đảm bảo form sạch khi đóng
+    }
+
+    /**
+     * Xử lý sự kiện submit form (Thêm hoặc Sửa)
+     * @param {Event} event
+     */
+    function handleFormSubmit(event) {
+        event.preventDefault(); // Ngăn form submit theo cách truyền thống
+
+        const id = userIdInput.value; // Lấy ID từ trường ẩn
+        const name = nameInput.value.trim();
+        const email = emailInput.value.trim();
+
+        // Validation đơn giản
+        if (!name || !email) {
+            alert('Vui lòng nhập đầy đủ Tên và Email.');
+            return;
+        }
+
+        const userData = { name, email };
+
+        if (id) {
+            // --- Chế độ Sửa ---
+            userData.id = parseInt(id, 10); // Chuyển ID sang số nguyên
+            const index = users.findIndex(user => user.id === userData.id);
+            if (index !== -1) {
+                users[index] = userData; // Cập nhật trong mảng dữ liệu
+                console.log('Đã cập nhật user:', userData);
+                 // Tùy chọn: Cập nhật trực tiếp hàng trong DOM thay vì render lại cả bảng
+                 const rowToUpdate = userTableBody.querySelector(`tr[data-id="${userData.id}"]`);
+                 if (rowToUpdate) {
+                     rowToUpdate.cells[1].textContent = userData.name;
+                     rowToUpdate.cells[2].textContent = userData.email;
+                 } else {
+                      renderTable(); // Hoặc render lại nếu không tìm thấy row
+                 }
+            } else {
+                console.error("Không tìm thấy user để cập nhật với ID:", id);
+                // Có thể render lại bảng để đảm bảo đồng bộ
+                 renderTable();
+            }
+        } else {
+            // --- Chế độ Thêm ---
+            userData.id = nextUserId++; // Gán ID mới và tăng biến đếm
+            users.push(userData); // Thêm vào mảng dữ liệu
+            console.log('Đã thêm user:', userData);
+            // Thêm hàng mới vào bảng (thay vì render lại toàn bộ)
+            const newRow = userTableBody.insertRow();
+            newRow.setAttribute('data-id', userData.id);
+            newRow.innerHTML = `
+                <td>${userData.id}</td>
+                <td>${userData.name}</td>
+                <td>${userData.email}</td>
+                <td>
+                    <button class="btn btn-edit" data-id="${userData.id}">Sửa</button>
+                    <button class="btn btn-delete" data-id="${userData.id}">Xóa</button>
+                </td>
+            `;
+            // Nếu bảng đang trống, xóa thông báo "Không có dữ liệu"
+            const emptyRow = userTableBody.querySelector('td[colspan="4"]');
+            if (emptyRow) emptyRow.closest('tr').remove();
+        }
+
+        hideModal(); // Đóng modal sau khi thêm/sửa thành công
+        // renderTable(); // Render lại toàn bộ bảng (cách đơn giản nhất để cập nhật UI)
+    }
+
+     /**
+     * Xử lý sự kiện click trong bảng (Sửa/Xóa)
+     * @param {Event} event
+     */
+    function handleTableClick(event) {
+        const target = event.target; // Element được click
+
+        // --- Xử lý nút Sửa ---
+        if (target.classList.contains('btn-edit')) {
+            const userId = parseInt(target.getAttribute('data-id'), 10);
+            const userToEdit = users.find(user => user.id === userId);
+            if (userToEdit) {
+                showModal('edit', userToEdit);
+            } else {
+                 console.error("Không tìm thấy user để sửa với ID:", userId);
+            }
+        }
+
+        // --- Xử lý nút Xóa ---
+        if (target.classList.contains('btn-delete')) {
+            const userId = parseInt(target.getAttribute('data-id'), 10);
+            const userToDelete = users.find(user => user.id === userId);
+
+            if (userToDelete && confirm(`Bạn có chắc chắn muốn xóa người dùng "${userToDelete.name}" (ID: ${userId}) không?`)) {
+                // Xóa khỏi mảng dữ liệu
+                users = users.filter(user => user.id !== userId);
+                console.log('Đã xóa user ID:', userId);
+
+                // Xóa hàng khỏi bảng trong DOM
+                target.closest('tr').remove();
+
+                 // Hiển thị thông báo nếu bảng trống
+                 if (users.length === 0) {
+                      renderTable();
+                 }
+            }
         }
     }
 
-    function themDanhMuc(ma, ten, trangThai) {
-        const moi = { id: ma, name: ten, status: trangThai };
-        danhMucList.push(moi);
-        luuDanhMucVaoBoNho();
-        hienThiDanhMuc(danhMucList);
-    }
+    // === Event Listeners ===
+    addUserBtn.addEventListener('click', () => showModal('add')); // Mở modal ở chế độ thêm
+    closeModalBtn.addEventListener('click', hideModal);          // Đóng modal bằng nút X
+    cancelBtn.addEventListener('click', hideModal);            // Đóng modal bằng nút Hủy
+    modalOverlay.addEventListener('click', hideModal);         // Đóng modal khi click ra ngoài
+    userForm.addEventListener('submit', handleFormSubmit);       // Xử lý khi submit form
+    userTableBody.addEventListener('click', handleTableClick);   // Xử lý click Sửa/Xóa trong bảng
+
+    // === Initial Render ===
+    renderTable(); // Vẽ bảng lần đầu khi trang tải xong
+
 });
